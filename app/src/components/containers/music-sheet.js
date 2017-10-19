@@ -1,9 +1,7 @@
 import { connect } from 'react-redux'
 import MusicSheetPresenter from '../presenters/music-sheet'
-import { markovMusic } from '../exports/markov-music'
+import { letters, markovMusic } from '../exports/markov-music'
 import { setNotes } from '../actions'
-
-const audioconcat = require('audioconcat')
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -19,11 +17,18 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     removeNote: ()=> {
       
     },
-    formatNote: (note)=> {
-
-    },
-    createRandomSong: ()=> {
-      dispatch(setNotes(markovMusic()))
+    generateSong: ()=> {
+      const song = markovMusic()
+      const formatted_song = song.split('').map(function(note_obj){
+        return letters.filter(function(letter_obj){
+          if(letter_obj.letter === note_obj){
+            return letter_obj
+          }
+          return false
+        }).note
+      });
+      console.log(formatted_song)
+      dispatch(setNotes(song))
     },
     clearSong: ()=> {
       

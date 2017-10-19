@@ -25,8 +25,7 @@ const MusicSheetPresenter = (props) => (
 MusicSheetPresenter.propTypes = {
   addNote: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired,
-  createRandomSong: PropTypes.func.isRequired,
-  formatNote: PropTypes.func.isRequired,
+  generateSong: PropTypes.func.isRequired,
   notes: PropTypes.array.isRequired,
   filename: PropTypes.string.isRequired
 }
