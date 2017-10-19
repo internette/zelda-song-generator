@@ -12,6 +12,7 @@ const MusicSheetPresenter = (props) => (
           if(letter_obj.letter === note){
             return letter_obj
           }
+          return false;
         })[0].button.toLowerCase();
         if(["X", "A", "R", "Y"].indexOf(note) > -1){
           classes += ' cpad'
@@ -26,7 +27,8 @@ MusicSheetPresenter.propTypes = {
   removeNote: PropTypes.func.isRequired,
   createRandomSong: PropTypes.func.isRequired,
   formatNote: PropTypes.func.isRequired,
-  notes: PropTypes.array.isRequired
+  notes: PropTypes.array.isRequired,
+  filename: PropTypes.string.isRequired
 }
 
 export default MusicSheetPresenter

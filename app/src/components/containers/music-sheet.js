@@ -3,9 +3,12 @@ import MusicSheetPresenter from '../presenters/music-sheet'
 import { markovMusic } from '../exports/markov-music'
 import { setNotes } from '../actions'
 
+const audioconcat = require('audioconcat')
+
 const mapStateToProps = (state, ownProps) => {
   return {
-    notes: state.musicSheet.notes ? state.musicSheet.notes : markovMusic()
+    notes: state.musicSheet.notes ? state.musicSheet.notes : markovMusic(),
+    filename: state.musicSheet.filename ? state.musicSheet.filename : ''
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -17,7 +20,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       
     },
     formatNote: (note)=> {
-      
+
     },
     createRandomSong: ()=> {
       dispatch(setNotes(markovMusic()))
