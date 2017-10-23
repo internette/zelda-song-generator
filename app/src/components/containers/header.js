@@ -1,39 +1,71 @@
 import { connect } from 'react-redux'
 import HeaderPresenter from '../presenters/header'
-import { getRandomInt } from '../exports/random'
-import { letters, markovMusic } from '../exports/markov-music'
-import { setTitle, setNotes } from '../actions'
-
-const songs_pts1 = ['Song of', 'Sonata of', 'Oath to', 'Goron', "Epona's", 'New Wave', "Scarecrow's"];
-const songs_pts2 = ['Time', 'Healing', 'Soaring', 'Awakening', 'Order', 'Lullaby', 'Song', 'Bossa Nova'];
+import { letters, markovMusic, generateTitle } from '../exports/markov-music'
+import { setTitle, setNotes, setAudioFileUrl } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    song_title: (function(){
-      const song_pt1 = songs_pts1[getRandomInt(0, songs_pts1.length)];
-      const song_pt2 = songs_pts2[getRandomInt(0, songs_pts2.length)];
-      return state.header.title ? state.header.title :  song_pt1 + ' ' +  song_pt2
-    })()
+    song_title: state.header.title
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const generateTitle = ()=>{
-    const song_pt1 = songs_pts1[getRandomInt(0, songs_pts1.length)];
-    const song_pt2 = songs_pts2[getRandomInt(0, songs_pts2.length)];
-    dispatch(setTitle(song_pt1 + ' ' + song_pt2))
-  }
-  const generateSong = ()=> {
-    dispatch(setNotes(markovMusic()))
-  }
   return {
-    generateTitle: generateTitle,
-    generateSong: generateSong,
+    generateTitle: ()=>{
+      dispatch(setTitle(generateTitle()))
+    },
+    generateSong: ()=> {
+      dispatch(setNotes(markovMusic()))
+    },
     randomizeSong: ()=> {
-      generateSong()
-      generateTitle()
+      dispatch(setAudioFileUrl(''))
+      const song = markovMusic()
+      const song_title = generateTitle()
+      dispatch(setNotes(song))
+      dispatch(setTitle(song_title))
+      const formatted_song = song.map(function(note_obj){
+        return letters.filter(function(letter_obj){
+          if(letter_obj.letter === note_obj){
+            return letter_obj
+          }
+          return false
+        })[0].note
+      }).join('%20');
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://e6b648f9.ngrok.io/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_title, true);
+      
+      xhr.onload = function () {
+        if(xhr.readyState === 4){
+          dispatch(setAudioFileUrl(xhr.responseText))
+        }
+      };
+      
+      xhr.send(null);
     },
     clearSong: ()=> {
+      dispatch(setTitle(''))
+      dispatch(setNotes([]))
+      dispatch(setAudioFileUrl(''))
+    },
+    getFileName: (song_name)=> {
+      const song = markovMusic()
+      const formatted_song = song.map(function(note_obj){
+        return letters.filter(function(letter_obj){
+          if(letter_obj.letter === note_obj){
+            return letter_obj
+          }
+          return false
+        })[0].note
+      }).join('%20');
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://44806a74.ngrok.io/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_name, true);
       
+      xhr.onload = function () {
+        if(xhr.readyState === 4){
+          dispatch(setAudioFileUrl(xhr.responseText))
+        }
+      };
+      
+      xhr.send(null);
     },
   }
 }

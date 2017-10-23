@@ -10,6 +10,6 @@ export function setInstrument(instrument) {
   return {type: 'set-instrument', instrument: instrument}
 }
 
-export function setAudioFileName(name) {
+export function setAudioFileUrl(name) {
   return {type: 'set-audio-filename', filename: name}
 }

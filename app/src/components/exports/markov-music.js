@@ -8,6 +8,18 @@ export const letters = [
   {letter: "R", note: "F", button: "Down"},
   {letter: "Y", note: "A", button: "Right"}
 ]  
+
+export const song_parts = {
+  songs_pts1: ['Song of', 'Sonata of', 'Oath to', 'Goron', "Epona's", 'New Wave', "Scarecrow's"],
+  songs_pts2: ['Time', 'Healing', 'Soaring', 'Awakening', 'Order', 'Lullaby', 'Song', 'Bossa Nova']
+}
+
+export function generateTitle(){
+  const song_pt1 = song_parts.songs_pts1[getRandomInt(0, song_parts.songs_pts1.length)];
+  const song_pt2 = song_parts.songs_pts2[getRandomInt(0, song_parts.songs_pts2.length)];
+  return song_pt1 + ' ' + song_pt2
+}
+
 const min_song_length = Math.min.apply(Math, original_songs.map(function(str) { return str.length; }));
 const max_song_length = Math.max.apply(Math, original_songs.map(function(str) { return str.length; }));
 
