@@ -1,6 +1,5 @@
 import { connect } from 'react-redux'
 import InstrumentsPresenter from '../presenters/instruments'
-import { setInstrument } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {

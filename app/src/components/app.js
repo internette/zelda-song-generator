@@ -9,11 +9,11 @@ import '../styles/app.css'
 const App = ()=> {
   return (
     <div id="container">
-      <Header />
       <div id="music-instruments">
         <Instruments/>
       </div>
       <div id="generated-music-items">
+        <Header />
         <MusicSheet />
       </div>
     </div>

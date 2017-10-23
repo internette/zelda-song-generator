@@ -8,10 +8,6 @@ const musicSheet = (state = {}, action)=> {
       return Object.assign({}, state, {
         filename: action.filename
       })
-    case 'set-instrument':
-      return Object.assign({}, state, {
-        instrument: action.instrument
-      })
     default: 
       return state
   }

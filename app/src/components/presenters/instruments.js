@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 
 import Instrument from '../containers/instrument'
 
+import '../../styles/instruments.css'
+
 const InstrumentsPresenter = (props) => {
   return (
-    <div>
+    <div id="instruments">
       { props.instruments.map((instrument, index)=> {
         return <Instrument key={index} {...instrument}/>
       }) }
