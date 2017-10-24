@@ -5,7 +5,8 @@ import { setTitle, setNotes, setAudioFileUrl } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    song_title: state.header.title
+    song_title: state.header.title,
+    instrument: state.instrument.name
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -16,7 +17,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     generateSong: ()=> {
       dispatch(setNotes(markovMusic()))
     },
-    randomizeSong: ()=> {
+    randomizeSong: (instrument)=> {
       dispatch(setAudioFileUrl(''))
       const song = markovMusic()
       const song_title = generateTitle()
@@ -31,7 +32,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         })[0].note
       }).join('%20');
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', base_url + '/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_title, true);
+      xhr.open('GET', base_url + '/make-song?notes=' + formatted_song + '&instrument=' + instrument + '&song_title=' + song_title, true);
       
       xhr.onload = function () {
         if(xhr.readyState === 4){
@@ -45,28 +46,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(setTitle(''))
       dispatch(setNotes([]))
       dispatch(setAudioFileUrl(''))
-    },
-    getFileName: (song_name)=> {
-      const song = markovMusic()
-      const formatted_song = song.map(function(note_obj){
-        return letters.filter(function(letter_obj){
-          if(letter_obj.letter === note_obj){
-            return letter_obj
-          }
-          return false
-        })[0].note
-      }).join('%20');
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', base_url + '/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_name, true);
-      
-      xhr.onload = function () {
-        if(xhr.readyState === 4){
-          dispatch(setAudioFileUrl(xhr.responseText))
-        }
-      };
-      
-      xhr.send(null);
-    },
+    }
   }
 }
 
