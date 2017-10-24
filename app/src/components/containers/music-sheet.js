@@ -4,7 +4,6 @@ import { letters, base_url } from '../exports/markov-music'
 import { setNotes, setAudioFileUrl } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.instrument)
   return {
     song_name: state.header.title,
     notes: state.musicSheet.notes,

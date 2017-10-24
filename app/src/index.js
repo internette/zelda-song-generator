@@ -9,7 +9,7 @@ import App from './components/app'
 
 import { letters, markovMusic, generateTitle, base_url } from './components/exports/markov-music'
 
-import { setTitle, setNotes, setAudioFileUrl, setInstrument } from './components/actions'
+import { setTitle, setNotes, setAudioFileUrl, setInstrument, storeWindowWidth } from './components/actions'
 
 import registerServiceWorker from './registerServiceWorker'
 
@@ -21,6 +21,8 @@ const init_song = markovMusic()
 store.dispatch(setNotes(init_song))
 
 store.dispatch(setInstrument('flute'))
+
+store.dispatch(storeWindowWidth(window.innerWidth))
 
 const arrow_key_map = [
   {
@@ -109,6 +111,10 @@ document.addEventListener('keyup', function(ev){
       alert("You've entered the max amount of notes allowed in a Zelda song by Majora's Mask standards")
     }
   }
+})
+
+window.addEventListener('resize', function(){
+  store.dispatch(storeWindowWidth(window.innerWidth))
 })
 
 ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));

@@ -3,6 +3,7 @@ import InstrumentsPresenter from '../presenters/instruments'
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    window_width: state.header.window_width,
     instruments: [
       {
         name: 'drums',

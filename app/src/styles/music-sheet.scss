@@ -52,14 +52,50 @@
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   h1 {
-    margin: 1.5rem -1px;
-    padding: 0.75rem 0;
-    text-align: center;
+    margin: 1rem 0;
     text-transform: uppercase;
     color: $black;
-    font-family: sans-serif;
-    opacity: 0.8;
-    text-shadow: 1px 1px 0 $border_beige, 0 1px 0 $border_beige, 1px -1px 0 $border_beige, -1px 1px 0 $border_beige, -1px 0 0 $border_beige, -1px -1px 0 $border_beige;
+    text-shadow: 1.5px 1.5px 0 $border_beige, 0 1.5px 0 $border_beige, -1.5px 1.5px 0 $border_beige;
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 3rem;
+    display: inline-block;
+  }
+  #buttons {
+    position: relative;
+    float: right;
+    button {
+      width: 7rem;
+      height: 3rem;
+      float: left;
+      font-size: 1rem;
+      text-shadow: -1px 1px $translucent_black, 1px 1px $translucent_black, 1px -1px $translucent_black, -1px -1px $translucent_black;
+      background-image: linear-gradient(to bottom, rgba($translucent_black, 0.3) 0%, transparent);
+      border: 0;
+      padding: 0.3rem;
+      border-radius: 5px;
+      z-index: 1;
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 7.2rem;
+        height: 3.3rem;
+        left: -0.1rem;
+        top: -0.1rem;
+        z-index: -1;
+        border-radius: 5px;
+      }
+      &:first-of-type {
+        background-color: blue;
+        color: mix(blue, white, 30%);
+        &:before {
+          background-image: linear-gradient(to bottom, mix(white, blue, 60%), blue, mix(black, blue, 50%))
+        }
+      }
+      &:last-of-type {
+        background-color: $green;
+      }
+    }
   }
   header + div {
     border: 1px solid $border_beige;

@@ -5,8 +5,10 @@ const HeaderPresenter = (props) => {
   return (
     <header>
       <h1 onClick={props.generateTitle}>{props.song_title}</h1>
-      <button onClick={props.randomizeSong}>Create Random Song</button>
-      <button onClick={props.clearSong}>Clear Sheet Music</button>
+      <div id="buttons">
+        <button onClick={props.randomizeSong}>Generate Song</button>
+        <button onClick={props.clearSong}>Clear Song</button>
+      </div>
     </header>
   )
 }

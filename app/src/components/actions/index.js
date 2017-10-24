@@ -13,3 +13,7 @@ export function setInstrument(instrument) {
 export function setAudioFileUrl(name) {
   return {type: 'set-audio-filename', filename: name}
 }
+
+export function storeWindowWidth(width){
+  return {type: 'store-window-width', width: width}
+}

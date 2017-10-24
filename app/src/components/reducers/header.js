@@ -4,6 +4,10 @@ const header = (state = {}, action)=> {
       return Object.assign({}, state, {
         title: action.title
       })
+    case 'store-window-width':
+      return Object.assign({}, state, {
+        window_width: action.width
+      })
     default: 
       return state
   }
