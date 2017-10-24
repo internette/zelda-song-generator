@@ -68,7 +68,6 @@ const formatted_song = init_song.map(function(note_obj){
 uploadSong(formatted_song, init_song_title)
 
 document.addEventListener('keyup', function(ev){
-  store.dispatch(setTitle(generateTitle()))
   let music_notes = store.getState().musicSheet.notes.slice(0)
   if(ev.keyCode === 8){
     store.dispatch(setAudioFileUrl(''))
@@ -108,7 +107,9 @@ document.addEventListener('keyup', function(ev){
         store.dispatch(setNotes(music_notes))
       }
     } else {
-      alert("You've entered the max amount of notes allowed in a Zelda song by Majora's Mask standards")
+      if((ev.keyCode >= 37 && ev.keyCode <= 40) || ev.keyCode === 65){
+        alert("You've entered the max amount of notes allowed in a Zelda song by Majora's Mask standards")
+      }
     }
   }
 })
