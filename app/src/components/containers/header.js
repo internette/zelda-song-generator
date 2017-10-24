@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import HeaderPresenter from '../presenters/header'
-import { letters, markovMusic, generateTitle } from '../exports/markov-music'
+import { letters, markovMusic, generateTitle, base_url } from '../exports/markov-music'
 import { setTitle, setNotes, setAudioFileUrl } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         })[0].note
       }).join('%20');
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://e6b648f9.ngrok.io/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_title, true);
+      xhr.open('GET', base_url + '/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_title, true);
       
       xhr.onload = function () {
         if(xhr.readyState === 4){
@@ -57,7 +57,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         })[0].note
       }).join('%20');
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://44806a74.ngrok.io/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_name, true);
+      xhr.open('GET', base_url + '/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_name, true);
       
       xhr.onload = function () {
         if(xhr.readyState === 4){

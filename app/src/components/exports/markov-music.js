@@ -29,6 +29,8 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+export const base_url = "https://f7957597.ngrok.io"
+
 function buildDictionary(){
   for(var i = 0; i < original_songs.length; i++){
     var song = original_songs[i];

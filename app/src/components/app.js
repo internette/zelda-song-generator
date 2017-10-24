@@ -13,8 +13,10 @@ const App = ()=> {
         <Instruments/>
       </div>
       <div id="generated-music-items">
-        <Header />
-        <MusicSheet />
+        <div className="container-content">
+          <Header />
+          <MusicSheet />
+        </div>
       </div>
     </div>
   );

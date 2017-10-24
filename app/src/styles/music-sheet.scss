@@ -1,3 +1,4 @@
+@import 'colors';
 .button {
   width: 30px;
   height: 30px;
@@ -41,5 +42,28 @@
   }
   &.a {
     background-color: blue;
+  }
+}
+.container-content {
+  width: 80%;
+  height: 80vh;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  h1 {
+    margin: 1.5rem -1px;
+    padding: 0.75rem 0;
+    text-align: center;
+    text-transform: uppercase;
+    color: $black;
+    font-family: sans-serif;
+    opacity: 0.8;
+    text-shadow: 1px 1px 0 $border_beige, 0 1px 0 $border_beige, 1px -1px 0 $border_beige, -1px 1px 0 $border_beige, -1px 0 0 $border_beige, -1px -1px 0 $border_beige;
+  }
+  header + div {
+    border: 1px solid $border_beige;
+    background: $translucent_black;
+    border-radius: 3px;
   }
 }

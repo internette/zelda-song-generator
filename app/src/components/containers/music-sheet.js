@@ -1,12 +1,15 @@
 import { connect } from 'react-redux'
 import MusicSheetPresenter from '../presenters/music-sheet'
-import { letters } from '../exports/markov-music'
+import { letters, base_url } from '../exports/markov-music'
 import { setNotes, setAudioFileUrl } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state.instrument)
   return {
+    song_name: state.header.title,
     notes: state.musicSheet.notes,
-    filename: state.musicSheet.filename ? state.musicSheet.filename : ''
+    filename: state.musicSheet.filename ? state.musicSheet.filename : '',
+    instrument: state.instrument.name
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
@@ -20,7 +23,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       })
       dispatch(setNotes(filtered_notes))
     },
-    buildSong: (song, song_name)=> {
+    buildSong: (song, song_name, instrument)=> {
       const formatted_song = song.map(function(note_obj){
         return letters.filter(function(letter_obj){
           if(letter_obj.letter === note_obj){
@@ -30,7 +33,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         })[0].note
       }).join('%20');
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', 'https://e6b648f9.ngrok.io/make-song?notes=' + formatted_song + '&instrument=Flute&song_title=' + song_name, true);
+      xhr.open('GET', base_url + '/make-song?notes=' + formatted_song + '&instrument='+ instrument +'&song_title=' + song_name, true);
       
       xhr.onload = function () {
         if(xhr.readyState === 4){

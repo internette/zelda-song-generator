@@ -1,9 +1,8 @@
 import { connect } from 'react-redux'
 import InstrumentPresenter from '../presenters/instrument'
-import { setInstrument } from '../actions'
+import { setInstrument, setAudioFileUrl } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(ownProps)
   return {
     name: ownProps.name ? ownProps.name : '',
     formatted_name: ownProps.formatted_name ? ownProps.formatted_name : '',
@@ -14,6 +13,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     setInstrument: (instrument)=> {
       dispatch(setInstrument(instrument))
+      dispatch(setAudioFileUrl(''))
     }
   }
 }

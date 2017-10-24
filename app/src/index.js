@@ -7,7 +7,7 @@ import { createStore } from 'redux'
 import AppReducer from './components/reducers'
 import App from './components/app'
 
-import { letters, markovMusic, generateTitle } from './components/exports/markov-music'
+import { letters, markovMusic, generateTitle, base_url } from './components/exports/markov-music'
 
 import { setTitle, setNotes, setAudioFileUrl, setInstrument } from './components/actions'
 
@@ -20,7 +20,7 @@ store.dispatch(setTitle(init_song_title))
 const init_song = markovMusic()
 store.dispatch(setNotes(init_song))
 
-store.dispatch(setInstrument('Flute'))
+store.dispatch(setInstrument('flute'))
 
 const arrow_key_map = [
   {
@@ -43,7 +43,7 @@ const arrow_key_map = [
 
 function uploadSong(song, song_title){
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://e6b648f9.ngrok.io/make-song?notes=' + song + '&instrument=Flute&song_title=' + song_title, true)
+  xhr.open('GET', base_url + '/make-song?notes=' + song + '&instrument=' + store.getState().instrument.name + '&song_title=' + song_title, true)
   
   xhr.onload = function () {
     if(xhr.readyState === 4){
