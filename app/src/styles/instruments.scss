@@ -43,7 +43,7 @@
       div {
         border-radius: 10px;
         background-color: $black;
-        box-shadow: 0.5px 0 2px 1px $black, -1px 0 0 0.5px rgba($beige, 0.4) inset;
+        box-shadow: 0.5px 0 2px 1px $black, -1px 0 0 0.5px $border_beige inset;
         position: relative;
         overflow: hidden;
       }
@@ -88,7 +88,7 @@
   span {
     display: inline-block;
     width: 90%;
-    color: $beige;
+    color: rgba($beige, 0.8);
     font-size: 0.9rem;
     text-align: center;
   }
@@ -119,6 +119,7 @@
     .img {
       margin: 0 0.5rem;
       width: 6rem;
+      height: 3.5rem;
     }
     span {
       margin: 0.5rem 0 0.5rem;

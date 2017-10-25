@@ -63,54 +63,48 @@
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
   h1 {
-    margin: 1rem 0;
+    margin: 0 0 0.4rem;
     text-transform: uppercase;
     color: $black;
-    text-shadow: 1.5px 1.5px 0 $border_beige, 0 1.5px 0 $border_beige, -1.5px 1.5px 0 $border_beige;
+    text-shadow: 1.5px 1.5px 0 rgba($border_beige, 0.3), 0 1.5px 0 rgba($border_beige, 0.3), -1.5px 1.5px 0 rgba($border_beige, 0.3);
     font-family: 'Alegreya Sans SC', sans-serif;
     font-size: 3rem;
-    display: inline-block;
   }
   #buttons {
     position: relative;
-    float: right;
+    margin-bottom: 1rem;
     button {
-      width: 7rem;
-      height: 3rem;
-      float: left;
-      font-size: 1rem;
-      text-shadow: -1px 1px $translucent_black, 1px 1px $translucent_black, 1px -1px $translucent_black, -1px -1px $translucent_black;
-      background-image: linear-gradient(to bottom, rgba($translucent_black, 0.3) 0%, transparent);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      background-color: $black;
+      box-shadow: 1px 1px 1px $beige inset, 1px 1px 1px $black inset, 0 3px 4px 0 $translucent_black;
+      color: rgba($beige, 0.9);
       border: 0;
-      padding: 0.3rem;
+      padding: 0.6rem 0.75rem;
       border-radius: 5px;
-      z-index: 1;
-      &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        width: 7.2rem;
-        height: 3.3rem;
-        left: -0.1rem;
-        top: -0.1rem;
-        z-index: -1;
-        border-radius: 5px;
-      }
+      position: relative;
       &:first-of-type {
-        background-color: blue;
-        color: mix(blue, white, 30%);
-        &:before {
-          background-image: linear-gradient(to bottom, mix(white, blue, 60%), blue, mix(black, blue, 50%))
-        }
-      }
-      &:last-of-type {
-        background-color: $green;
+        margin-right: 0.75rem;
       }
     }
   }
   header + div {
-    border: 1px solid $border_beige;
     background: $translucent_black;
     border-radius: 3px;
+    padding: 1rem;
+    box-shadow: 1.5px 1.5px 1.5px $border_beige, -1.5px -1.5px 1.5px $black;
+    background-image: linear-gradient(to bottom, $translucent_black -2%, transparent 5%);
+    margin-top: 1.5rem;
+  }
+  @media screen and (max-width: 768px){
+    h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+    #buttons {
+      text-align: center;
+    }
   }
 }
