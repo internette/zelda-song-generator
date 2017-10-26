@@ -1,5 +1,5 @@
-let ngrams = {};
-const order = 1;
+let ngrams = {}
+const order = 1
 const original_songs = [ "XAYXAY", "AXYAXY", "RYXRYX", "LRALRA", "YRAYRA", "YLRYLR", "LAXYXY", "RLRLYRYR", "LRYYX", "LRLYRL", "XYYLXYR", "AYAYXA", "LRLRLRLR"]
 
 export const preexisting_songs = [
@@ -54,32 +54,32 @@ export const song_parts = {
 
 export function generateTitle(){
   let song_pt1 = getRandomInt(0, 4) === 1 ? 'Inverted ' : ''
-  song_pt1 += song_parts.songs_pts1[getRandomInt(0, song_parts.songs_pts1.length)];
+  song_pt1 += song_parts.songs_pts1[getRandomInt(0, song_parts.songs_pts1.length)]
   let song_pt2 = getRandomInt(0, 4) === 1 ? 'Double ' : ''
-  song_pt2 += song_parts.songs_pts2[getRandomInt(0, song_parts.songs_pts2.length)];
+  song_pt2 += song_parts.songs_pts2[getRandomInt(0, song_parts.songs_pts2.length)]
   return song_pt1 + ' ' + song_pt2
 }
 
-const min_song_length = Math.min.apply(Math, original_songs.map(function(str) { return str.length; }));
-const max_song_length = Math.max.apply(Math, original_songs.map(function(str) { return str.length; }));
+const min_song_length = Math.min.apply(Math, original_songs.map(function(str) { return str.length; }))
+const max_song_length = Math.max.apply(Math, original_songs.map(function(str) { return str.length; }))
 
 function getRandomInt(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+  min = Math.ceil(min)
+  max = Math.floor(max)
+  return Math.floor(Math.random() * (max - min)) + min
 }
 
 export const base_url = 'https://e8263f25.ngrok.io'
 
 function buildDictionary(){
   for(var i = 0; i < original_songs.length; i++){
-    var song = original_songs[i];
+    var song = original_songs[i]
     for(var j = 0; j <= song.length - order; j++){
       var gram = song.substring(j, j + order);
       if(!ngrams[gram]){
         ngrams[gram] = []
       }
-      ngrams[gram].push(song.charAt(j + order));
+      ngrams[gram].push(song.charAt(j + order))
     }
   }
 }
@@ -91,28 +91,29 @@ export function markovMusic(song_title){
     if(song_obj.name === song_title){
       return song_obj
     }
+    return false
   })
   if(matching_songs.length > 0){
     return matching_songs[0].notes
   } else {
-    var song_length = getRandomInt(min_song_length, max_song_length + 1);
-    var first_letter_obj = letters[getRandomInt(0, letters.length)];
-    var first_letter = first_letter_obj.letter;
-    var currentGram = first_letter;
-    var result = currentGram;
+    var song_length = getRandomInt(min_song_length, max_song_length + 1)
+    var first_letter_obj = letters[getRandomInt(0, letters.length)]
+    var first_letter = first_letter_obj.letter
+    var currentGram = first_letter
+    var result = currentGram
     if(/double/gi.test(song_title)){
-      result += currentGram;
+      result += currentGram
     }
     while(result.length < song_length){
-      var possibilities = ngrams[currentGram];
-      var next = possibilities[getRandomInt(0, possibilities.length)];
-      result += next;
+      var possibilities = ngrams[currentGram]
+      var next = possibilities[getRandomInt(0, possibilities.length)]
+      result += next
       if(/double/gi.test(song_title)){
-        result += next;
+        result += next
       }
-      currentGram = result.substring(result.length - order, result.length);
+      currentGram = result.substring(result.length - order, result.length)
     }
-    return result.split('');
+    return result.split('')
   }
 }
 
