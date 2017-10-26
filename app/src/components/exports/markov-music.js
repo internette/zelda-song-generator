@@ -69,7 +69,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min
 }
 
-export const base_url = 'https://90723469.ngrok.io'
+export const base_url = 'https://5c7b9661.ngrok.io'
 
 function buildDictionary(){
   for(var i = 0; i < original_songs.length; i++){

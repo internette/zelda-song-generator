@@ -9,8 +9,9 @@ const MusicSheetPresenter = (props) => {
   if (props.filename.length > 0){
     button = <a className="button green" href={props.filename}>Download Song</a>
   } else {
-    button = <button className="button black" onClick={()=>{
+    button = <button className="button black" onClick={(e)=>{
       props.buildSong(props.notes, props.song_name, props.instrument)
+      props.changeStatus(e.currentTarget)
     }}>Build My Song</button>
   }
   return (
@@ -38,6 +39,7 @@ const MusicSheetPresenter = (props) => {
 MusicSheetPresenter.propTypes = {
   buildSong: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired,
+  changeStatus: PropTypes.func.isRequired,
   notes: PropTypes.array.isRequired,
   filename: PropTypes.string.isRequired
 }

@@ -22,6 +22,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       })
       dispatch(setNotes(filtered_notes))
     },
+    changeStatus: (elm)=> {
+      elm.className += ' pending'
+    },
     buildSong: (song, song_name, instrument)=> {
       const formatted_song = song.map(function(note_obj){
         return letters.filter(function(letter_obj){
