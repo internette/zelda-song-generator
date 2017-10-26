@@ -17,7 +17,7 @@ let store = createStore(AppReducer);
 
 const init_song_title = generateTitle()
 store.dispatch(setTitle(init_song_title))
-const init_song = markovMusic()
+const init_song = markovMusic(init_song_title)
 store.dispatch(setNotes(init_song))
 
 store.dispatch(setInstrument('flute'))

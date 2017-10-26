@@ -18,7 +18,6 @@ const HeaderPresenter = (props) => {
 HeaderPresenter.propTypes = {
   showInstructions: PropTypes.func.isRequired,
   generateTitle: PropTypes.func.isRequired,
-  generateSong: PropTypes.func.isRequired,
   randomizeSong: PropTypes.func.isRequired,
   clearSong: PropTypes.func.isRequired,
   song_title: PropTypes.string.isRequired

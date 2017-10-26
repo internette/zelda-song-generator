@@ -1,6 +1,29 @@
 let ngrams = {};
 const order = 1;
 const original_songs = [ "XAYXAY", "AXYAXY", "RYXRYX", "LRALRA", "YRAYRA", "YLRYLR", "LAXYXY", "RLRLYRYR", "LRYYX", "LRLYRL", "XYYLXYR", "AYAYXA", "LRLRLRLR"]
+
+const preexisting_songs = [
+  {
+    name: "Song of Time",
+    notes: ["Y", "L", "R", "Y", "L", "R"]
+  }, {
+    name: "Song of Healing",
+    notes: ["X", "Y", "R", "X", "Y", "R"]
+  }, {
+    name: "Song of Soaring",
+    notes: ["R", "X", "A", "R", "X", "A"]
+  }, {
+    name: "Sonata of Awakening",
+    notes: ["A", "X", "A", "X", "L", "Y", "L"]
+  }, {
+    name: "Inverted Song of Time",
+    notes: ["R", "L", "Y", "R", "L", "Y"]
+  }, {
+    name: "Song of Double Time",
+    notes: ["R", "L", "Y", "R", "L", "Y"]
+  },
+]
+
 export const letters = [
   {letter: "L", note: "D", button: "A"},
   {letter: "X", note: "B", button: "Left"},
@@ -15,8 +38,10 @@ export const song_parts = {
 }
 
 export function generateTitle(){
-  const song_pt1 = song_parts.songs_pts1[getRandomInt(0, song_parts.songs_pts1.length)];
-  const song_pt2 = song_parts.songs_pts2[getRandomInt(0, song_parts.songs_pts2.length)];
+  let song_pt1 = getRandomInt(0, 2) === 1 ? 'Inverted ' : ''
+  song_pt1 += song_parts.songs_pts1[getRandomInt(0, song_parts.songs_pts1.length)];
+  let song_pt2 = getRandomInt(0, 2) === 1 ? 'Double ' : ''
+  song_pt2 += song_parts.songs_pts2[getRandomInt(0, song_parts.songs_pts2.length)];
   return song_pt1 + ' ' + song_pt2
 }
 
@@ -44,7 +69,7 @@ function buildDictionary(){
   }
 }
 
-export function markovMusic(){
+export function markovMusic(song_title){
   buildDictionary();
   // We add 1 to the max_song_length because the max value is exclusive, but we want it to be inclusive
   var song_length = getRandomInt(min_song_length, max_song_length + 1);
@@ -52,10 +77,16 @@ export function markovMusic(){
   var first_letter = first_letter_obj.letter;
   var currentGram = first_letter;
   var result = currentGram;
+  if(/double/gi.test(song_title)){
+    result += currentGram;
+  }
   while(result.length < song_length){
     var possibilities = ngrams[currentGram];
     var next = possibilities[getRandomInt(0, possibilities.length)];
     result += next;
+    if(/double/gi.test(song_title)){
+      result += next;
+    }
     currentGram = result.substring(result.length - order, result.length);
   }
   return result.split('');

@@ -14,16 +14,13 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     generateTitle: ()=>{
       dispatch(setTitle(generateTitle()))
     },
-    generateSong: ()=> {
-      dispatch(setNotes(markovMusic()))
-    },
     showInstructions: ()=>{
       dispatch(toggleInstructions(true))
     },
     randomizeSong: (instrument)=> {
       dispatch(setAudioFileUrl(''))
-      const song = markovMusic()
       const song_title = generateTitle()
+      const song = markovMusic(song_title)
       dispatch(setNotes(song))
       dispatch(setTitle(song_title))
       const formatted_song = song.map(function(note_obj){
