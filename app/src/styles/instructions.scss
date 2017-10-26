@@ -1,0 +1,67 @@
+@import 'colors';
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900');
+
+#instructions-holder {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  display: none;
+  &.active {
+    display: block;
+  }
+  #backscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $translucent_black;
+  }
+  #instructions {
+    background: $green;
+    color: $beige;
+    position: relative;
+    width: 45vw;
+    border-radius: 4px;
+    border: 1px solid $gold;
+    box-shadow: 0.5px 0.5px 0.5px $border_beige inset, -1px -1px 1px $translucent_black inset, 0 0 3px 3px $translucent_black;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    h3 {
+      padding: 0.7rem 1.5rem;
+      // color: $black;
+      // background: $beige;
+      margin: 0;
+      font-family: 'Alegreya Sans SC', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.5px;
+      // background-image: linear-gradient(to top, $translucent_black -5%, transparent 10%);
+      // text-shadow: -1px -1px 1px $translucent_black;
+    }
+    ul {
+      margin: 0;
+      padding: 1rem 2.5rem;
+    }
+    button {
+      border: 2px solid $translucent-black;
+      background-color: $black;
+      box-shadow: 1px 1px 1px rgba($beige, 0.6) inset, -1.5px -1.5px 1.5px $black inset;
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 2rem;
+      height: 2rem;
+      line-height: 0;
+      color: rgba($beige, 0.8);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

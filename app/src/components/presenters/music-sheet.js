@@ -7,17 +7,17 @@ import '../../styles/music-sheet.css'
 const MusicSheetPresenter = (props) => {
   let button
   if (props.filename.length > 0){
-    button = <a href={props.filename}>Download Song</a>
+    button = <a className="button green" href={props.filename}>Download Song</a>
   } else {
-    button = <button onClick={()=>{
+    button = <button className="button black" onClick={()=>{
       props.buildSong(props.notes, props.song_name, props.instrument)
     }}>Build My Song</button>
   }
   return (
     <div>
-      <div>
+      <div id="music-sheet">
         {props.notes.map((note, index) => {
-            let classes = 'button'
+            let classes = 'note'
             classes += ' ' + letters.filter(function(letter_obj){
               if(letter_obj.letter === note){
                 return letter_obj

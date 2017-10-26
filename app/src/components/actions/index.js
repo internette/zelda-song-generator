@@ -17,3 +17,7 @@ export function setAudioFileUrl(name) {
 export function storeWindowWidth(width){
   return {type: 'store-window-width', width: width}
 }
+
+export function toggleInstructions(visibility){
+  return {type: 'toggle-instructions', visibility: visibility}
+}

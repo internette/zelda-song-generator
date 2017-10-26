@@ -1,8 +1,9 @@
 import React from 'react'
 
-import Header from "./containers/header"
-import MusicSheet from "./containers/music-sheet"
-import Instruments from "./containers/instruments"
+import Header from './containers/header'
+import MusicSheet from './containers/music-sheet'
+import Instruments from './containers/instruments'
+import Instructions from './containers/instructions'
 
 import '../styles/app.css'
 
@@ -18,6 +19,7 @@ const App = ()=> {
           <MusicSheet />
         </div>
       </div>
+      <Instructions/>
     </div>
   );
 }
