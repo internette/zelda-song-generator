@@ -31,20 +31,41 @@
     top: 50%;
     left: 50%;
     transform: translate3d(-50%, -50%, 0);
+    max-width: 550px;
+    padding: 0.75rem 0 2rem;
+    @media screen and (max-width: 768px){
+      width: 84vw;
+      padding: 0.6rem 0 3rem;
+    }
     h3 {
-      padding: 0.7rem 1.5rem;
-      // color: $black;
-      // background: $beige;
-      margin: 0;
+      padding: 0.7rem 0 0.5rem;
+      margin: 0 0 0.6rem 1.8rem;
       font-family: 'Alegreya Sans SC', sans-serif;
       font-size: 1.6rem;
-      letter-spacing: 0.5px;
-      // background-image: linear-gradient(to top, $translucent_black -5%, transparent 10%);
-      // text-shadow: -1px -1px 1px $translucent_black;
+      letter-spacing: 1px;
+      width: 70%; 
+      clear: both;
+      border-bottom: 1px solid $gold;
     }
     ul {
       margin: 0;
       padding: 1rem 2.5rem;
+      font-family: system-ui;
+      font-size: 0.95rem;
+      li {
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.2px;
+        span {
+          background: $black;
+          padding: 0 0.2rem;
+          &:first-of-type {
+            margin-left: 0.4rem;
+          }
+          &:last-of-type {
+            padding: 0 0.35rem;
+          }
+        }
+      }
     }
     button {
       border: 2px solid $translucent-black;
@@ -64,4 +85,29 @@
       }
     }
   }
+}
+$triangle_size: 20px;
+#triforce, #triforce:before, #triforce:after {
+  width: 0;
+  height: 0;
+  border-left: ($triangle_size - 7) transparent solid;
+  border-right: ($triangle_size - 7) transparent solid;
+  border-bottom: $triangle_size $gold solid;
+}
+#triforce {
+  position: absolute;
+  bottom: 2rem;
+  right: 1.25rem;
+}
+#triforce:before, #triforce:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: $triangle_size;
+}
+#triforce:before {
+  left: -($triangle_size - 7)/12;
+}
+#triforce:after {
+  right: -($triangle_size - 7)/12;
 }

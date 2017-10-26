@@ -14,10 +14,11 @@ const InstructionsPresenter = (props) => {
         <ul>
           <li>Click notes to remove them</li>
           <li>Use the backspace key on your keyboard to remove the last note</li>
-          <li>Use any of the keys to add to the song: &#8592;, &#8593;, &#8594;, &#8595;, or A</li>
+          <li>Use any of the keys to add to the song: <span>&#8592;</span>, <span>&#8593;</span>, <span>&#8594;</span>, <span>&#8595;</span>, or <span>A</span></li>
           <li>Click the generate button to generate a new song and title</li>
           <li>Click the title to generate a new title</li>
         </ul>
+        <div id="triforce"></div>
       </div>
     </div>
   )
