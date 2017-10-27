@@ -1,0 +1,152 @@
+.note {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  position: relative;
+  border: 0;
+  margin: 0 0.8rem; }
+  .note:hover {
+    cursor: pointer; }
+  .note:before, .note:after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate3d(-50%, -50%, 0); }
+  .note.cpad {
+    box-shadow: 1px 1px 1px white inset, -1px -1px 1px rgba(255, 255, 0, 0.5) inset, 0 0 3px 1px #302006 inset, 0 0 8px 2px #9A7A59 inset;
+    background-color: #eded00;
+    background-image: linear-gradient(125deg, transparent 40%, #9A7A59); }
+    .note.cpad:before {
+      content: ''; }
+    .note.cpad.up:before {
+      border-bottom: 13px solid #302006;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      margin-top: -2px; }
+    .note.cpad.down:before {
+      border-top: 13px solid #302006;
+      border-left: 9px solid transparent;
+      border-right: 9px solid transparent;
+      margin-top: 1px; }
+    .note.cpad.left:before {
+      border-right: 13px solid #302006;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      margin-left: -2px; }
+    .note.cpad.right:before {
+      border-left: 13px solid #302006;
+      border-top: 9px solid transparent;
+      border-bottom: 9px solid transparent;
+      margin-left: 2px; }
+  .note.a {
+    background-color: blue;
+    background-image: linear-gradient(125deg, transparent 40%, rgba(48, 32, 6, 0.7));
+    box-shadow: 1px 1px 1px #bfbfff inset, -1px -1px 1px rgba(255, 255, 0, 0.3) inset;
+    position: relative; }
+    .note.a:after {
+      content: 'A';
+      display: block;
+      position: absolute;
+      top: 0.5rem;
+      left: 0.8rem;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500; }
+  @media screen and (max-width: 768px) {
+    .note {
+      width: 30px;
+      height: 30px;
+      margin: 0 0.5rem; }
+      .note.cpad.up:before {
+        border-bottom: 11px solid #302006;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent; }
+      .note.cpad.down:before {
+        border-top: 11px solid #302006;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent; }
+      .note.cpad.left:before {
+        border-right: 11px solid #302006;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent; }
+      .note.cpad.right:before {
+        border-left: 11px solid #302006;
+        border-top: 7px solid transparent;
+        border-bottom: 7px solid transparent; } }
+
+.container-content {
+  width: 85%;
+  height: 87vh;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0); }
+  .container-content h1 {
+    margin: 0 0 0.4rem;
+    text-transform: uppercase;
+    color: #302006;
+    text-shadow: 1.5px 1.5px 0 rgba(243, 236, 218, 0.3), 0 1.5px 0 rgba(243, 236, 218, 0.3), -1.5px 1.5px 0 rgba(243, 236, 218, 0.3);
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 3rem; }
+    .container-content h1 button {
+      border: 0;
+      border-radius: 50%;
+      background: #3A645D;
+      color: #F3ECDA;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      vertical-align: top;
+      margin-top: 0.75rem;
+      margin-left: 1rem;
+      box-shadow: 1px 1px 1px #F3ECDA inset, 0 0 5px rgba(48, 32, 6, 0.5) inset, 0 1px 3px rgba(48, 32, 6, 0.5); }
+      .container-content h1 button:hover {
+        cursor: pointer; }
+  .container-content #buttons {
+    position: relative;
+    margin-bottom: 1rem; }
+  .container-content .button {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: system-ui;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 1px 1px 1px #F3ECDA inset, 1px 1px 1px #302006 inset, 0 3px 4px 0 rgba(48, 32, 6, 0.5);
+    color: rgba(243, 236, 218, 0.9);
+    border: 0;
+    padding: 0.6rem 0.75rem;
+    border-radius: 5px;
+    position: relative; }
+    .container-content .button.black {
+      background-color: #302006; }
+    .container-content .button.green {
+      background-color: #3A645D; }
+    .container-content .button:first-of-type {
+      margin-right: 0.75rem; }
+    .container-content .button:hover {
+      cursor: pointer; }
+  .container-content #music-sheet {
+    background: rgba(48, 32, 6, 0.5);
+    border-radius: 3px;
+    padding: 1rem;
+    box-shadow: 1.5px 1.5px 1.5px rgba(243, 236, 218, 0.4), -1.5px -1.5px 1.5px #302006;
+    background-image: linear-gradient(to bottom, rgba(48, 32, 6, 0.5) -2%, transparent 5%);
+    margin-top: 1.5rem;
+    transition: 0.1s; }
+    .container-content #music-sheet + .button {
+      display: inline-block;
+      margin-top: 1.5rem; }
+      .container-content #music-sheet + .button.pending {
+        box-shadow: 1.5px 1.5px 1.5px rgba(243, 236, 218, 0.4), -1.5px -1.5px 1px #302006;
+        color: rgba(243, 236, 218, 0.4); }
+  @media screen and (max-width: 768px) {
+    .container-content h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 0.4rem; }
+    .container-content #buttons {
+      text-align: center; } }
