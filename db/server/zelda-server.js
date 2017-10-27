@@ -17,8 +17,8 @@ app.use(
 )
 app.use(cors())
 
-app.use('/', serveIndex(path.join(__dirname.replace('db/server', 'app'), '/index.html')))
-app.use('/', express.static(path.join(__dirname.replace('db/server', 'app'), '/index.html')))
+app.use('/', serveIndex(path.join(__dirname.replace('db/server', 'app'), '/public/index.html')))
+app.use('/', express.static(path.join(__dirname.replace('db/server', 'app'), '/public/index.html')))
 
 app.use('/public/sound_clips', serveIndex(path.join(__dirname, '/sound_clips')))
 app.use('/public/sound_clips', express.static(path.join(__dirname, '/sound_clips')))
