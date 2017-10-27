@@ -8,6 +8,7 @@ express = require('express'),
 bodyParser = require('body-parser'), 
 serveIndex = require('serve-index'),
 cors = require('cors'),
+process = require('process'),
 ffmpeg = require('fluent-ffmpeg')
 const app = express()
 app.use(
@@ -100,6 +101,6 @@ new CronJob('00 00 * * * *', function() {
   })
 }, null, true, 'America/New_York');
 
-// const server = app.listen(3000, function() {
-//   logger.log('info', 'Listening on port %d', server.address().port)
-// })
+const server = app.listen(process.env.PORT || 8080, function() {
+  logger.log('info', 'Listening on port %d', server.address().port)
+})
