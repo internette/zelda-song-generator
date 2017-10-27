@@ -1,0 +1,191 @@
+@import 'colors';
+.note {
+  $button_size: 36px;
+  width: $button_size;
+  height: $button_size;
+  border-radius: 50%;
+  position: relative;
+  border: 0;
+  margin: 0 0.8rem;
+  &:hover {
+    cursor: pointer;
+  }
+  &:before, &:after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    transform: translate3d(-50%, -50%, 0);
+  }
+  &.cpad {
+    box-shadow: 1px 1px 1px white inset, -1px -1px 1px rgba(yellow, 0.5) inset, 0 0 3px 1px $black inset, 0 0 8px 2px $gold inset;
+    background-color: mix(yellow, black, 93%);
+    background-image: linear-gradient(125deg, transparent 40%, $gold);
+    &:before {
+      content: '';
+    }
+    $width: 13px;
+    $clear_width: 9px;
+    &.up:before {
+      border-bottom: $width solid $black;
+      border-left: $clear_width solid transparent;
+      border-right: $clear_width solid transparent;
+      margin-top: -2px;
+    }
+    &.down:before {
+      border-top: $width solid $black;
+      border-left: $clear_width solid transparent;
+      border-right: $clear_width solid transparent;
+      margin-top: 1px;
+    }
+    &.left:before {
+      border-right: $width solid $black;
+      border-top: $clear_width solid transparent;
+      border-bottom: $clear_width solid transparent;
+      margin-left: -2px;
+    }
+    &.right:before {
+      border-left: $width solid $black;
+      border-top: $clear_width solid transparent;
+      border-bottom: $clear_width solid transparent;
+      margin-left: 2px;
+    }
+  }
+  &.a {
+    background-color: blue;
+    background-image: linear-gradient(125deg, transparent 40%, rgba($black, 0.7));
+    box-shadow: 1px 1px 1px mix(blue, white, 25%) inset, -1px -1px 1px rgba(yellow, 0.3) inset;
+    position: relative;
+    &:after {
+      content: 'A';
+      display: block;
+      position: absolute;
+      top: 0.5rem;
+      left: 0.8rem;
+      color: white;
+      font-size: 1rem;
+      font-weight: 500;
+    }
+  }
+  @media screen and (max-width: 768px){
+    $button_size: 30px;
+    width: $button_size;
+    height: $button_size;
+    margin: 0 0.5rem;
+    &.cpad {
+      $width: 11px;
+      $clear_width: 7px;
+      &.up:before {
+        border-bottom: $width solid $black;
+        border-left: $clear_width solid transparent;
+        border-right: $clear_width solid transparent;
+      }
+      &.down:before {
+        border-top: $width solid $black;
+        border-left: $clear_width solid transparent;
+        border-right: $clear_width solid transparent;
+      }
+      &.left:before {
+        border-right: $width solid $black;
+        border-top: $clear_width solid transparent;
+        border-bottom: $clear_width solid transparent;
+      }
+      &.right:before {
+        border-left: $width solid $black;
+        border-top: $clear_width solid transparent;
+        border-bottom: $clear_width solid transparent;
+      }
+    }
+  }
+}
+.container-content {
+  width: 85%;
+  height: 87vh;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  h1 {
+    margin: 0 0 0.4rem;
+    text-transform: uppercase;
+    color: $black;
+    text-shadow: 1.5px 1.5px 0 rgba($border_beige, 0.3), 0 1.5px 0 rgba($border_beige, 0.3), -1.5px 1.5px 0 rgba($border_beige, 0.3);
+    font-family: 'Alegreya Sans SC', sans-serif;
+    font-size: 3rem;
+    button {
+      border: 0;
+      border-radius: 50%;
+      background: $green;
+      color: $beige;
+      font-size: 1rem;
+      line-height: 1.5rem;
+      width: 1.8rem;
+      height: 1.8rem;
+      vertical-align: top;
+      margin-top: 0.75rem;
+      margin-left: 1rem;
+      box-shadow: 1px 1px 1px $beige inset, 0 0 5px $translucent_black inset, 0 1px 3px $translucent_black;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  #buttons {
+    position: relative;
+    margin-bottom: 1rem;
+  }
+  .button {
+    font-size: 0.9rem;
+    font-weight: 500;
+    font-family: system-ui;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 1px 1px 1px $beige inset, 1px 1px 1px $black inset, 0 3px 4px 0 $translucent_black;
+    color: rgba($beige, 0.9);
+    border: 0;
+    padding: 0.6rem 0.75rem;
+    border-radius: 5px;
+    position: relative;
+    &.black {
+      background-color: $black;
+    }
+    &.green {
+      background-color: $green;
+    }
+    &:first-of-type {
+      margin-right: 0.75rem;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  #music-sheet {
+    background: $translucent_black;
+    border-radius: 3px;
+    padding: 1rem;
+    box-shadow: 1.5px 1.5px 1.5px $border_beige, -1.5px -1.5px 1.5px $black;
+    background-image: linear-gradient(to bottom, $translucent_black -2%, transparent 5%);
+    margin-top: 1.5rem;
+    transition: 0.1s;
+    & + .button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      &.pending {
+        box-shadow: 1.5px 1.5px 1.5px $border_beige, -1.5px -1.5px 1px $black;
+        color: $border_beige;
+      }
+    }
+  }
+  @media screen and (max-width: 768px){
+    h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 0.4rem;
+    }
+    #buttons {
+      text-align: center;
+    }
+  }
+}

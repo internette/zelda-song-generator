@@ -1,0 +1,33 @@
+@import 'colors';
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900');
+html, body {
+  margin: 0;
+  background-image: url('../assets/seamless-wood-texture.jpg');
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  height: 100%;
+  overflow-y: hidden;
+  #container {
+    height: 100%;
+    overflow-y: hidden;
+  }
+  #music-instruments {
+    float: left;
+  }
+  #generated-music-items {
+    border-left: 1px solid rgba($beige, 0.5);
+    height: 100%;
+    padding-left: 7rem;
+    @media screen and (max-width: 768px) {
+      float: left;
+      width: 100%;
+      padding: 0;
+    }
+  }
+}

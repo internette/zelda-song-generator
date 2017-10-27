@@ -1,0 +1,113 @@
+@import 'colors';
+@import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900');
+
+#instructions-holder {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 1000;
+  display: none;
+  &.active {
+    display: block;
+  }
+  #backscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $translucent_black;
+  }
+  #instructions {
+    background: $green;
+    color: $beige;
+    position: relative;
+    width: 45vw;
+    border-radius: 4px;
+    border: 1px solid $gold;
+    box-shadow: 0.5px 0.5px 0.5px $border_beige inset, -1px -1px 1px $translucent_black inset, 0 0 3px 3px $translucent_black;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    max-width: 550px;
+    padding: 0.75rem 0 2rem;
+    @media screen and (max-width: 768px){
+      width: 84vw;
+      padding: 0.6rem 0 3rem;
+    }
+    h3 {
+      padding: 0.7rem 0 0.5rem;
+      margin: 0 0 0.6rem 1.8rem;
+      font-family: 'Alegreya Sans SC', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+      width: 70%; 
+      clear: both;
+      border-bottom: 1px solid $gold;
+    }
+    ul {
+      margin: 0;
+      padding: 1rem 2.5rem;
+      font-family: system-ui;
+      font-size: 0.95rem;
+      li {
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.2px;
+        span {
+          background: $black;
+          padding: 0 0.2rem;
+          &:first-of-type {
+            margin-left: 0.4rem;
+          }
+          &:last-of-type {
+            padding: 0 0.35rem;
+          }
+        }
+      }
+    }
+    button {
+      border: 2px solid $translucent-black;
+      background-color: $black;
+      box-shadow: 1px 1px 1px rgba($beige, 0.6) inset, -1.5px -1.5px 1.5px $black inset;
+      position: absolute;
+      top: -1rem;
+      right: -1rem;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 2rem;
+      height: 2rem;
+      line-height: 0;
+      color: rgba($beige, 0.8);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}
+$triangle_size: 20px;
+#triforce, #triforce:before, #triforce:after {
+  width: 0;
+  height: 0;
+  border-left: ($triangle_size - 7) transparent solid;
+  border-right: ($triangle_size - 7) transparent solid;
+  border-bottom: $triangle_size $gold solid;
+}
+#triforce {
+  position: absolute;
+  bottom: 2rem;
+  right: 1.25rem;
+}
+#triforce:before, #triforce:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: $triangle_size;
+}
+#triforce:before {
+  left: -($triangle_size - 7)/12;
+}
+#triforce:after {
+  right: -($triangle_size - 7)/12;
+}
