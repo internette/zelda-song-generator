@@ -34,10 +34,6 @@ const logger = new (winston.Logger)({
 
 app.use(express.static(path.join(__dirname, 'app', 'build')))
 
-app.get('/*', function (req, res) {
-  res.sendFile(path.join(__dirname, 'build', 'index.html'));
-})
-
 app.get("/api/make-song", (req, res)=> {
   let params = req.query
   const file_urls = params.notes.split(' ').map(function(note){
@@ -78,6 +74,10 @@ app.get("/api/make-song", (req, res)=> {
     .outputOptions('-metadata', 'title="'+params.song_title.replace(/(%20)/g, ' ').replace(/%27/g, "'") +'"')
     .mergeToFile(__dirname+'/assets/user_songs/' + song_name);
     });
+})
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
 })
 
 var CronJob = require('cron').CronJob;
