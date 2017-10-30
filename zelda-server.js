@@ -17,6 +17,12 @@ app.use(
 )
 app.use(cors())
 
+app.use(express.static(path.join(__dirname, '/app/build')))
+
+app.get('*', function(req, res){
+  res.sendFile(path.join(__dirname, '/app/build/index.html'))
+})
+
 app.use('/public/sound_clips', serveIndex(path.join(__dirname, '/assets/sound_clips')))
 app.use('/public/sound_clips', express.static(path.join(__dirname, '/assets/sound_clips')))
 app.use('/public/user_songs', serveIndex(path.join(__dirname, '/assets/user_songs')))
@@ -98,14 +104,6 @@ new CronJob('00 00 * * * *', function() {
     }
   })
 }, null, true, 'America/New_York');
-
-
-
-app.use(express.static(path.join(__dirname, '/app/build')))
-
-app.get('*', function(req, res){
-  res.sendFile(path.join(__dirname, '/app/build/index.html'))
-})
 
 const server = app.listen(process.env.PORT || 8080, function() {
   logger.log('info', 'Listening on port %d', server.address().port)
