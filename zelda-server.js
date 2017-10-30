@@ -17,8 +17,6 @@ app.use(
 )
 app.use(cors())
 
-app.use(express.static(path.join(__dirname.replace('db/server', 'app'), '/build')))
-
 app.use('/public/sound_clips', serveIndex(path.join(__dirname, '/assets/sound_clips')))
 app.use('/public/sound_clips', express.static(path.join(__dirname, '/assets/sound_clips')))
 app.use('/public/user_songs', serveIndex(path.join(__dirname, '/assets/user_songs')))
@@ -49,11 +47,11 @@ app.get('/make-song', function(req, res){
       value: parsed_str[1]
     }
   });
-  const ec2_url = 'http://ec2-34-228-201-183.compute-1.amazonaws.com/public'
+  const ec2_url = __dirname + '/'
   const file_urls = params[0].value.map(function(note){
     return ec2_url + '/sound_clips/' + params[1].value + '_' + note + '.mp3' 
   });
-  fs.readdir(__dirname + '/user_songs', function(err, files) {
+  fs.readdir(__dirname + '/assets/user_songs', function(err, files) {
     let song_name = 'usersong_'
     if (err) {
       // some sort of error
@@ -80,29 +78,33 @@ app.get('/make-song', function(req, res){
                      .inputOption('-t ' + sound_length)
       }, ffmpeg()).on('end', function() {
       console.log('files have been merged succesfully');
-      res.send(ec2_url+'/user_songs/' + song_name)
+      res.send(ec2_url+'/assets/user_songs/' + song_name)
     })
     .on('error', function(err) {
       console.log('an error happened: ' + err.message);
     })
     .outputOptions('-metadata', 'title="'+params[2].value.replace(/(%20)/g, ' ').replace(/%27/g, "'") +'"')
-    .mergeToFile(__dirname.replace(/server/, 'audio')+'/user_songs/' + song_name);
+    .mergeToFile(__dirname+'/assets/user_songs/' + song_name);
     });
 });
 
 var CronJob = require('cron').CronJob;
 new CronJob('00 00 * * * *', function() {
-  fs.readdir(__dirname.replace('server', 'audio/user_songs'), function(err, files) {
+  fs.readdir(__dirname + '/assets/user_songs' , function(err, files) {
     if(files.length > 0 ){
       files.forEach(function(file){
-        fs.unlinkSync(path.join(__dirname.replace('server', 'audio/user_songs'), file));
+        fs.unlinkSync(path.join(__dirname, 'assets', 'user_songs', file));
       })
     }
   })
 }, null, true, 'America/New_York');
 
+
+
+app.use(express.static(path.join(__dirname, '/app/build')))
+
 app.get('*', function(req, res){
-  res.sendFile(path.join(__dirname.replace('db/server', 'app'), '/build/index.html'))
+  res.sendFile(path.join(__dirname, '/app/build/index.html'))
 })
 
 const server = app.listen(process.env.PORT || 8080, function() {
