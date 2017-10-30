@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     // "postinstall": "npm install --prefix db/server && npm install --prefix app"
-    "start": "node db/server/zelda-server.js",
+    "start": "node ./db/server/zelda-server.js",
     "heroku-postbuild": "cd app && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
