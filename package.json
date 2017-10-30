@@ -1,7 +1,6 @@
 {
   "name": "zelda-song-generator",
   "version": "1.0.0",
-  "proxy": "http://localhost:8080",
   "scripts": {
     "postinstall": "npm install --prefix db/server && npm install --prefix app"
   },
