@@ -3,6 +3,6 @@
 app/node_modules/*
 app/build/*
 node_modules/*
-*.mp3
+assets/user_songs/*.mp3
 .git/
 *.log
