@@ -17,8 +17,6 @@ app.use(
 )
 app.use(cors())
 
-// app.use('/', serveIndex(path.join(__dirname.replace('db/server', 'app'), '/public')))
-// app.use('/', express.static(path.join(__dirname.replace('db/server', 'app'), '/public')))
 app.get('*', function(req, res){
   res.sendFile(path.join(__dirname.replace('db/server', 'app'), '/public/index.html'))
 })
