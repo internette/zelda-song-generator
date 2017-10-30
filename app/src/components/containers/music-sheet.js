@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import MusicSheetPresenter from '../presenters/music-sheet'
-import { letters, base_url } from '../exports/markov-music'
+import { letters } from '../exports/markov-music'
 import { setNotes, setAudioFileUrl } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
@@ -35,7 +35,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         })[0].note
       }).join('%20');
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', base_url + '/make-song?notes=' + formatted_song + '&instrument='+ instrument +'&song_title=' + song_name, true);
+      xhr.open('GET', '/make-song?notes=' + formatted_song + '&instrument='+ instrument +'&song_title=' + song_name, true);
       
       xhr.onload = function () {
         if(xhr.readyState === 4){
