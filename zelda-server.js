@@ -33,20 +33,10 @@ const logger = new (winston.Logger)({
   ]
 });
 
-app.get('/api/make-song', function(req, res){
-  let params = req.originalUrl.replace('/make-song?','')
-  params = params.split('&').map(function(str){
-    var parsed_str = str.split('=');
-    if(parsed_str[0]==='notes'){
-      parsed_str[1] = parsed_str[1].split('%20');
-    } 
-    return {
-      key: parsed_str[0],
-      value: parsed_str[1]
-    }
-  });
-  const file_urls = params[0].value.map(function(note){
-    return __dirname + '/assets/sound_clips/' + params[1].value + '_' + note + '.mp3' 
+app.get("/api/make-song", (req, res)=> {
+  let params = req.query
+  const file_urls = params.notes.split(' ').map(function(note){
+    return __dirname + '/assets/sound_clips/' + params.instrument + '_' + note + '.mp3' 
   });
   fs.readdir(__dirname + '/assets/user_songs', function(err, files) {
     let song_name = 'usersong_'
@@ -80,7 +70,7 @@ app.get('/api/make-song', function(req, res){
     .on('error', function(err) {
       console.log('an error happened: ' + err.message);
     })
-    .outputOptions('-metadata', 'title="'+params[2].value.replace(/(%20)/g, ' ').replace(/%27/g, "'") +'"')
+    .outputOptions('-metadata', 'title="'+params.song_title.replace(/(%20)/g, ' ').replace(/%27/g, "'") +'"')
     .mergeToFile(__dirname+'/assets/user_songs/' + song_name);
     });
 });
