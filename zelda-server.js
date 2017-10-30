@@ -18,13 +18,7 @@ app.use(
 )
 app.use(cors())
 
-
-app.use('/public/sound_clips', serveIndex(path.join(__dirname, '/assets/sound_clips')))
-app.use('/public/sound_clips', express.static(path.join(__dirname, '/assets/sound_clips')))
-app.use('/public/user_songs', serveIndex(path.join(__dirname, '/assets/user_songs')))
-app.use('/public/user_songs', express.static(path.join(__dirname, '/assets/user_songs')))
-
-app.use(express.static("app/build"));
+app.use(express.static("app/build"))
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
@@ -39,7 +33,7 @@ const logger = new (winston.Logger)({
   ]
 });
 
-router.get('/make-song', function(req, res){
+app.get('/make-song', function(req, res){
   let params = req.originalUrl.replace('/make-song?','')
   params = params.split('&').map(function(str){
     var parsed_str = str.split('=');
