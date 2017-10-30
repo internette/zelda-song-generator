@@ -17,11 +17,7 @@ app.use(
 )
 app.use(cors())
 
-app.use(express.static(path.join(__dirname.replace('db/server', 'app'), '/build')));
-
-app.get('*', function(req, res){
-  res.sendFile(path.join(__dirname.replace('db/server', 'app'), '/build/index.html'))
-})
+app.use(express.static(path.join(__dirname.replace('db/server', 'app'), '/build')))
 
 app.use('/public/sound_clips', serveIndex(path.join(__dirname, '/sound_clips')))
 app.use('/public/sound_clips', express.static(path.join(__dirname, '/sound_clips')))
@@ -97,11 +93,17 @@ app.get('/make-song', function(req, res){
 var CronJob = require('cron').CronJob;
 new CronJob('00 00 * * * *', function() {
   fs.readdir(__dirname.replace('server', 'audio/user_songs'), function(err, files) {
-    files.forEach(function(file){
-      fs.unlinkSync(path.join(__dirname.replace('server', 'audio/user_songs'), file));
-    })
+    if(files.length > 0 ){
+      files.forEach(function(file){
+        fs.unlinkSync(path.join(__dirname.replace('server', 'audio/user_songs'), file));
+      })
+    }
   })
 }, null, true, 'America/New_York');
+
+app.get('*', function(req, res){
+  res.sendFile(path.join(__dirname.replace('db/server', 'app'), '/build/index.html'))
+})
 
 const server = app.listen(process.env.PORT || 8080, function() {
   logger.log('info', 'Listening on port %d', server.address().port)

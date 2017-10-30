@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node zelda-server.js"
+    "start": "node zelda-server.js",
+    "heroku-postbuild": "cd app && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
