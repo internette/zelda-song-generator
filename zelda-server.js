@@ -47,9 +47,8 @@ app.get('/make-song', function(req, res){
       value: parsed_str[1]
     }
   });
-  const ec2_url = __dirname + '/'
   const file_urls = params[0].value.map(function(note){
-    return ec2_url + '/sound_clips/' + params[1].value + '_' + note + '.mp3' 
+    return __dirname + '/assets/sound_clips/' + params[1].value + '_' + note + '.mp3' 
   });
   fs.readdir(__dirname + '/assets/user_songs', function(err, files) {
     let song_name = 'usersong_'
@@ -78,7 +77,7 @@ app.get('/make-song', function(req, res){
                      .inputOption('-t ' + sound_length)
       }, ffmpeg()).on('end', function() {
       console.log('files have been merged succesfully');
-      res.send(ec2_url+'/assets/user_songs/' + song_name)
+      res.send(__dirname + '/assets/user_songs/' + song_name)
     })
     .on('error', function(err) {
       console.log('an error happened: ' + err.message);
