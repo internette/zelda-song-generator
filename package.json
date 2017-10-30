@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node zelda-server.js",
+    "start": "concurrently 'npm run server' 'cd app && npm start'",
+    "server": "node zelda-server.js",
     "heroku-postbuild": "cd app && npm install --only=dev && npm install && npm run build"
   },
   "author": "",
@@ -19,5 +20,8 @@
     "ngrok": "^2.2.23",
     "serve-index": "^1.9.1",
     "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.0"
   }
 }
