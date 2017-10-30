@@ -34,16 +34,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           return false
         })[0].note
       }).join('%20');
-      var xhr = new XMLHttpRequest();
-      xhr.open('GET', '/make-song?notes=' + formatted_song + '&instrument='+ instrument +'&song_title=' + song_name, true);
-      
-      xhr.onload = function () {
-        if(xhr.readyState === 4){
-          dispatch(setAudioFileUrl(xhr.responseText))
-        }
-      };
-      
-      xhr.send(null);
+      fetch(`/make-song?notes=${formatted_song}&instrument=${instrument}&song_title=${song_name}`).then((response)=> {
+        return response.text()
+      }).then((url)=>{
+        dispatch(setAudioFileUrl(url))
+      })
     }
   }
 }

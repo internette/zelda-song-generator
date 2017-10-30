@@ -46,16 +46,11 @@ const arrow_key_map = [
 ]
 
 function uploadSong(song, song_title){
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', '/make-song?notes=' + song + '&instrument=' + store.getState().instrument.name + '&song_title=' + song_title, true)
-  
-  xhr.onload = function () {
-    if(xhr.readyState === 4){
-      store.dispatch(setAudioFileUrl(xhr.responseText))
-    }
-  }
-
-  xhr.send(null)
+  return fetch(`/make-song?notes=${song}&instrument=${store.getState().instrument.name}&song_title=${song_title}`).then((response)=> {
+    return response.text()
+  }).then((url)=>{
+    store.dispatch(setAudioFileUrl(url))
+  })
 }
 
 const formatted_song = init_song.map(function(note_obj){
