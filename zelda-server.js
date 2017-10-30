@@ -18,8 +18,6 @@ app.use(
 )
 app.use(cors())
 
-app.use(express.static("app/build"))
-
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -32,6 +30,13 @@ const logger = new (winston.Logger)({
     new (winston.transports.File)({ filename: 'server-data.log' })
   ]
 });
+
+
+app.use(express.static(path.join(__dirname, 'app', 'build')))
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+})
 
 app.get("/api/make-song", (req, res)=> {
   let params = req.query
@@ -73,7 +78,7 @@ app.get("/api/make-song", (req, res)=> {
     .outputOptions('-metadata', 'title="'+params.song_title.replace(/(%20)/g, ' ').replace(/%27/g, "'") +'"')
     .mergeToFile(__dirname+'/assets/user_songs/' + song_name);
     });
-});
+})
 
 var CronJob = require('cron').CronJob;
 new CronJob('00 00 * * * *', function() {
