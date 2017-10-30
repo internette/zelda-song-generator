@@ -1,8 +1,8 @@
 #node
 
 app/node_modules/*
-app/build/*
-node_modules/*
-assets/user_songs/*.mp3
+app/build
+node_modules
+assets/user_songs
 .git/
 *.log
