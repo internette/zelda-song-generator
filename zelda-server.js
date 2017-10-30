@@ -33,7 +33,7 @@ const logger = new (winston.Logger)({
   ]
 });
 
-app.get('/make-song', function(req, res){
+app.get('/api/make-song', function(req, res){
   let params = req.originalUrl.replace('/make-song?','')
   params = params.split('&').map(function(str){
     var parsed_str = str.split('=');

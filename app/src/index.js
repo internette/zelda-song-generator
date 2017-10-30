@@ -46,7 +46,7 @@ const arrow_key_map = [
 ]
 
 function uploadSong(song, song_title){
-  return fetch(`/make-song?notes=${song}&instrument=${store.getState().instrument.name}&song_title=${song_title}`).then((response)=> {
+  return fetch(`/api/make-song?notes=${song}&instrument=${store.getState().instrument.name}&song_title=${song_title}`).then((response)=> {
     return response.text()
   }).then((url)=>{
     store.dispatch(setAudioFileUrl(url))

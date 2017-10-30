@@ -34,7 +34,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           return false
         })[0].note
       }).join('%20');
-      fetch(`/make-song?notes=${formatted_song}&instrument=${instrument}&song_title=${song_name}`).then((response)=> {
+      fetch(`/api/make-song?notes=${formatted_song}&instrument=${instrument}&song_title=${song_name}`).then((response)=> {
         return response.text()
       }).then((url)=>{
         dispatch(setAudioFileUrl(url))
