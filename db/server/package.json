@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node zelda-server.js"
   },
+  "proxy": "http://localhost:8080",
   "author": "",
   "license": "ISC",
   "dependencies": {
