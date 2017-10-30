@@ -17,8 +17,10 @@ app.use(
 )
 app.use(cors())
 
+app.use(express.static(path.join(__dirname.replace('db/server', 'app'), '/build')));
+
 app.get('*', function(req, res){
-  res.sendFile(path.join(__dirname.replace('db/server', 'app'), '/public/index.html'))
+  res.sendFile(path.join(__dirname.replace('db/server', 'app'), '/build/index.html'))
 })
 
 app.use('/public/sound_clips', serveIndex(path.join(__dirname, '/sound_clips')))
