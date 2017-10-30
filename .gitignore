@@ -1,6 +1,6 @@
 #node
 
 app/node_modules/*
-db/server/node_modules/*
+node_modules/*
 .git/
 *.log

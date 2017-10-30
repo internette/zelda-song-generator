@@ -19,10 +19,10 @@ app.use(cors())
 
 app.use(express.static(path.join(__dirname.replace('db/server', 'app'), '/build')))
 
-app.use('/public/sound_clips', serveIndex(path.join(__dirname, '/sound_clips')))
-app.use('/public/sound_clips', express.static(path.join(__dirname, '/sound_clips')))
-app.use('/public/user_songs', serveIndex(path.join(__dirname, '/user_songs')))
-app.use('/public/user_songs', express.static(path.join(__dirname, '/user_songs')))
+app.use('/public/sound_clips', serveIndex(path.join(__dirname, '/assets/sound_clips')))
+app.use('/public/sound_clips', express.static(path.join(__dirname, '/assets/sound_clips')))
+app.use('/public/user_songs', serveIndex(path.join(__dirname, '/assets/user_songs')))
+app.use('/public/user_songs', express.static(path.join(__dirname, '/assets/user_songs')))
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);

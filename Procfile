@@ -1,1 +1,1 @@
-web: npm start --prefix db/server
+web: npm start
