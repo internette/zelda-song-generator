@@ -1,8 +1,17 @@
 const path = require('path'),
 express = require('express'),
 cors = require('cors'),
+winston = require('winston'),
 bodyParser = require('body-parser')
 const app = express()
+
+// Setting up logger
+const logger = new (winston.Logger)({
+  transports: [
+    new (winston.transports.File)({ filename: 'server-data.log' })
+  ]
+});
+
 app.use(
   bodyParser.urlencoded({
     extended: true
