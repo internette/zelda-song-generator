@@ -1,5 +1,6 @@
 const path = require('path'),
 express = require('express'),
+cors = require('cors'),
 bodyParser = require('body-parser')
 const app = express()
 app.use(
