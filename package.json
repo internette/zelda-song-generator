@@ -1,0 +1,19 @@
+{
+  "name": "zelda-song-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "static-server.js",
+  "scripts": {
+    "start": "node static-server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/internette/zelda-song-generator.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/internette/zelda-song-generator/issues"
+  },
+  "homepage": "https://github.com/internette/zelda-song-generator#readme"
+}
