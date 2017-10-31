@@ -7,7 +7,7 @@ import { createStore } from 'redux'
 import AppReducer from './components/reducers'
 import App from './components/app'
 
-import { letters, markovMusic, generateTitle } from './components/exports/markov-music'
+import { letters, markovMusic, generateTitle, base_url } from './components/exports/markov-music'
 
 import { setTitle, setNotes, setAudioFileUrl, setInstrument, storeWindowWidth, toggleInstructions } from './components/actions'
 
@@ -46,7 +46,7 @@ const arrow_key_map = [
 ]
 
 function uploadSong(song, song_title){
-  return fetch(`/api/make-song?notes=${song}&instrument=${store.getState().instrument.name}&song_title=${song_title}`).then((response)=> {
+  return fetch(`${base_url}/make-song?notes=${song}&instrument=${store.getState().instrument.name}&song_title=${song_title}`).then((response)=> {
     return response.text()
   }).then((url)=>{
     store.dispatch(setAudioFileUrl(url))
