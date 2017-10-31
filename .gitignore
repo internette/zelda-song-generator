@@ -3,5 +3,7 @@
 app/node_modules/*
 node_modules
 assets/user_songs
+server/
 .git/
 *.log
+*.sh
