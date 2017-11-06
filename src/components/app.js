@@ -4,6 +4,7 @@ import Header from './containers/header'
 import MusicSheet from './containers/music-sheet'
 import Instruments from './containers/instruments'
 import Instructions from './containers/instructions'
+import Email from './containers/email'
 
 import '../styles/app.css'
 
@@ -20,6 +21,7 @@ const App = ()=> {
         </div>
       </div>
       <Instructions/>
+      <Email/>
     </div>
   );
 }

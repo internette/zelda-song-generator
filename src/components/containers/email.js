@@ -1,28 +1,24 @@
 import { connect } from 'react-redux'
-import HeaderPresenter from '../presenters/header'
+import EmailPresenter from '../presenters/instructions'
 import { letters, markovMusic, generateTitle, base_url } from '../exports/markov-music'
-import { setTitle, setNotes, setAudioFileUrl, toggleModal } from '../actions'
+import { toggleModal } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
+    is_visible: state.modals.modal_name === 'email' ? state.modals.visibility : false,
+    email: state.email.address,
     song_name: state.header.title,
-    instrument: state.instrument.name
+    instrument: state.instrument.name,
+    notes: state.musicSheet.notes,
+
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    generateTitle: ()=>{
-      dispatch(setTitle(generateTitle()))
+    hideEmail: ()=> {
+      dispatch(toggleModal(false, 'email'))
     },
-    showInstructions: ()=>{
-      dispatch(toggleModal(true, 'instructions'))
-    },
-    randomizeSong: (instrument)=> {
-      dispatch(setAudioFileUrl(''))
-      const song_name = generateTitle()
-      const song = markovMusic(song_name)
-      dispatch(setNotes(song))
-      dispatch(setTitle(song_name))
+    sendSong: (song, song_name, instrument, email_address)=> {
       const formatted_song = song.map(function(note_obj){
         return letters.filter(function(letter_obj){
           if(letter_obj.letter === note_obj){
@@ -36,22 +32,18 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         body: JSON.stringify({
           notes: formatted_song,
           instrument: instrument,
-          song_name: song_name
+          song_name: song_name,
+          email: email_address
         })
       }).then((response)=> {
         return response.text()
       }).then((url)=>{
         dispatch(setAudioFileUrl(url))
       })
-    },
-    clearSong: ()=> {
-      dispatch(setTitle(generateTitle()))
-      dispatch(setNotes([]))
-      dispatch(setAudioFileUrl(''))
     }
   }
 }
 
-const Header = connect(mapStateToProps,mapDispatchToProps)(HeaderPresenter)
+const Email = connect(mapStateToProps,mapDispatchToProps)(EmailPresenter)
 
-export default Header
+export default Email

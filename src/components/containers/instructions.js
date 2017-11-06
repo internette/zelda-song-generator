@@ -1,16 +1,16 @@
 import { connect } from 'react-redux'
 import InstructionsPresenter from '../presenters/instructions'
-import { toggleInstructions } from '../actions'
+import { toggleModal } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    is_visible: state.instructions.visibility
+    is_visible: state.modals.modal_name === 'instructions' ? state.modals.visibility : false
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     hideInstructions: ()=> {
-      dispatch(toggleInstructions(false))
+      dispatch(toggleModal(false, 'instructions'))
     }
   }
 }

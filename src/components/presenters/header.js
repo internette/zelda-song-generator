@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const HeaderPresenter = (props) => {
   return (
     <header>
-      <h1><span onClick={props.generateTitle}>{props.song_title}</span><button className="info" onClick={props.showInstructions}>?</button></h1>
+      <h1><span onClick={props.generateTitle}>{props.song_name}</span><button className="info" onClick={props.showInstructions}>?</button></h1>
       <div id="buttons">
         <button className="black button" onClick={()=> {
           props.randomizeSong(props.instrument)
@@ -20,7 +20,7 @@ HeaderPresenter.propTypes = {
   generateTitle: PropTypes.func.isRequired,
   randomizeSong: PropTypes.func.isRequired,
   clearSong: PropTypes.func.isRequired,
-  song_title: PropTypes.string.isRequired
+  song_name: PropTypes.string.isRequired
 }
 
 export default HeaderPresenter

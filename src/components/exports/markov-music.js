@@ -84,11 +84,11 @@ function buildDictionary(){
   }
 }
 
-export function markovMusic(song_title){
+export function markovMusic(song_name){
   buildDictionary();
   // We add 1 to the max_song_length because the max value is exclusive, but we want it to be inclusive
   const matching_songs = preexisting_songs.filter(function(song_obj){
-    if(song_obj.name === song_title){
+    if(song_obj.name === song_name){
       return song_obj
     }
     return false
@@ -101,14 +101,14 @@ export function markovMusic(song_title){
     var first_letter = first_letter_obj.letter
     var currentGram = first_letter
     var result = currentGram
-    if(/double/gi.test(song_title)){
+    if(/double/gi.test(song_name)){
       result += currentGram
     }
     while(result.length < song_length){
       var possibilities = ngrams[currentGram]
       var next = possibilities[getRandomInt(0, possibilities.length)]
       result += next
-      if(/double/gi.test(song_title)){
+      if(/double/gi.test(song_name)){
         result += next
       }
       currentGram = result.substring(result.length - order, result.length)

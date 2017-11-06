@@ -9,22 +9,22 @@ import App from './components/app'
 
 import { letters, markovMusic, generateTitle, base_url } from './components/exports/markov-music'
 
-import { setTitle, setNotes, setAudioFileUrl, setInstrument, storeWindowWidth, toggleInstructions } from './components/actions'
+import { setTitle, setNotes, setAudioFileUrl, setInstrument, storeWindowWidth, toggleModal } from './components/actions'
 
 import registerServiceWorker from './registerServiceWorker'
 
 let store = createStore(AppReducer);
 
-const init_song_title = generateTitle()
-store.dispatch(setTitle(init_song_title))
-const init_song = markovMusic(init_song_title)
+const init_song_name = generateTitle()
+store.dispatch(setTitle(init_song_name))
+const init_song = markovMusic(init_song_name)
 store.dispatch(setNotes(init_song))
 
 store.dispatch(setInstrument('flute'))
 
 store.dispatch(storeWindowWidth(window.innerWidth))
 
-store.dispatch(toggleInstructions(false))
+store.dispatch(toggleModal(false, 'instructions'))
 
 const arrow_key_map = [
   {
@@ -45,8 +45,15 @@ const arrow_key_map = [
   }
 ]
 
-function uploadSong(song, song_title){
-  return fetch(`${base_url}/make-song?notes=${song}&instrument=${store.getState().instrument.name}&song_title=${song_title}`).then((response)=> {
+function uploadSong(song, song_name){
+  return fetch(`${base_url}/make-song`, {
+    method: 'post',
+    body: JSON.stringify({
+      notes: song,
+      instrument: store.getState().instrument.name,
+      song_name: song_name
+    })
+  }).then((response)=> {
     return response.text()
   }).then((url)=>{
     store.dispatch(setAudioFileUrl(url))
@@ -62,7 +69,7 @@ const formatted_song = init_song.map(function(note_obj){
   })[0].note
 }).join('%20');
 
-uploadSong(formatted_song, init_song_title)
+uploadSong(formatted_song, init_song_name)
 
 document.addEventListener('keyup', function(ev){
   let music_notes = store.getState().musicSheet.notes.slice(0)

@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import MusicSheetPresenter from '../presenters/music-sheet'
-import { letters, base_url } from '../exports/markov-music'
-import { setNotes, setAudioFileUrl } from '../actions'
+import { setNotes, toggleModal } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -25,20 +24,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     changeStatus: (elm)=> {
       elm.className += ' pending'
     },
-    buildSong: (song, song_name, instrument)=> {
-      const formatted_song = song.map(function(note_obj){
-        return letters.filter(function(letter_obj){
-          if(letter_obj.letter === note_obj){
-            return letter_obj
-          }
-          return false
-        })[0].note
-      }).join('%20');
-      fetch(`${base_url}/make-song?notes=${formatted_song}&instrument=${instrument}&song_title=${song_name}`).then((response)=> {
-        return response.text()
-      }).then((url)=>{
-        dispatch(setAudioFileUrl(url))
-      })
+    showEmail: ()=> {
+      dispatch(toggleModal(true, 'email'))
     }
   }
 }

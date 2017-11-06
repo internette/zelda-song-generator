@@ -10,7 +10,7 @@ const MusicSheetPresenter = (props) => {
     button = <a className="button green" href={props.filename}>Download Song</a>
   } else {
     button = <button className="button black" onClick={(e)=>{
-      props.buildSong(props.notes, props.song_name, props.instrument)
+      props.showEmail()
       props.changeStatus(e.currentTarget)
     }}>Build My Song</button>
   }
@@ -37,7 +37,7 @@ const MusicSheetPresenter = (props) => {
 }
 
 MusicSheetPresenter.propTypes = {
-  buildSong: PropTypes.func.isRequired,
+  showEmail: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired,
   changeStatus: PropTypes.func.isRequired,
   notes: PropTypes.array.isRequired,

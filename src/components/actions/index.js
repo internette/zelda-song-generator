@@ -18,6 +18,6 @@ export function storeWindowWidth(width){
   return {type: 'store-window-width', width: width}
 }
 
-export function toggleInstructions(visibility){
-  return {type: 'toggle-instructions', visibility: visibility}
+export function toggleModal(visibility, modal_name){
+  return {type: 'toggle-modal', visibility: visibility, modal_name: modal_name}
 }
