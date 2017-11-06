@@ -1,25 +1,31 @@
 {
-  "name": "zelda-song-generator",
-  "version": "1.0.0",
-  "description": "",
-  "main": "static-server.js",
-  "scripts": {
-    "start": "node static-server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/internette/zelda-song-generator.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/internette/zelda-song-generator/issues"
-  },
-  "homepage": "https://github.com/internette/zelda-song-generator#readme",
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "body-parser": "^1.18.2",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "gh-pages": "^1.0.0",
+    "node-sass-chokidar": "0.0.3",
+    "npm-run-all": "^4.1.1",
+    "react": "^16.0.0",
+    "react-custom-scrollbars": "^4.2.0",
+    "react-dom": "^16.0.0",
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.14",
+    "redux": "^3.7.2",
     "winston": "^2.4.0"
+  },
+  "proxy": "http://localhost:3000",
+  "scripts": {
+    "deploy": "npm run build",
+    "build-css": "node-sass-chokidar src/ -o src/",
+    "watch-css": "npm run build-css && node-sass-chokidar src/styles/ -o src/styles/ --watch --recursive",
+    "start-js": "react-scripts start",
+    "start": "npm-run-all -p watch-css start-js",
+    "build": "npm run build-css && react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }

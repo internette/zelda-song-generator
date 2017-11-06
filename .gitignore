@@ -1,9 +1,6 @@
 #node
 
-app/node_modules/*
-node_modules
-assets/user_songs
-server/
+node_modules/
 .git/
 *.log
 *.sh
