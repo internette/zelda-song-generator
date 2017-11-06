@@ -9,7 +9,7 @@ import App from './components/app'
 
 import { letters, markovMusic, generateTitle, base_url } from './components/exports/markov-music'
 
-import { setTitle, setNotes, setAudioFileUrl, setInstrument, storeWindowWidth, toggleModal } from './components/actions'
+import { setTitle, setNotes, setAudioFileUrl, setInstrument, storeWindowWidth, toggleModal, setEmail } from './components/actions'
 
 import registerServiceWorker from './registerServiceWorker'
 
@@ -23,6 +23,8 @@ store.dispatch(setNotes(init_song))
 store.dispatch(setInstrument('flute'))
 
 store.dispatch(storeWindowWidth(window.innerWidth))
+
+store.dispatch(setEmail(''))
 
 store.dispatch(toggleModal(false, 'instructions'))
 

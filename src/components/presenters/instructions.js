@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import '../../styles/instructions.css'
+import '../../styles/modal.css'
 
 const InstructionsPresenter = (props) => {
-  const classes = props.is_visible ? 'active' : ''
+  const classes = props.are_instructions_visible ? 'active modal-container' : 'modal-container'
   return (
     <div id="instructions-holder" className={classes}>
       <div id="backscreen"></div>
       <div id="instructions">
-        <button onClick={props.hideInstructions}>&times;</button>
+        <button onClick={props.hideInstructions} className="exit">&times;</button>
         <h3>Interaction Options</h3>
         <ul>
           <li>Click notes to remove them</li>
@@ -26,7 +26,7 @@ const InstructionsPresenter = (props) => {
 
 InstructionsPresenter.propTypes = {
   hideInstructions: PropTypes.func.isRequired,
-  is_visible: PropTypes.bool.isRequired
+  are_instructions_visible: PropTypes.bool.isRequired
 }
 
 export default InstructionsPresenter

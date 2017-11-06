@@ -109,26 +109,6 @@
   .container-content #buttons {
     position: relative;
     margin-bottom: 1rem; }
-  .container-content .button {
-    font-size: 0.9rem;
-    font-weight: 500;
-    font-family: system-ui;
-    text-decoration: none;
-    text-transform: uppercase;
-    box-shadow: 1px 1px 1px #F3ECDA inset, 1px 1px 1px #302006 inset, 0 3px 4px 0 rgba(48, 32, 6, 0.5);
-    color: rgba(243, 236, 218, 0.9);
-    border: 0;
-    padding: 0.6rem 0.75rem;
-    border-radius: 5px;
-    position: relative; }
-    .container-content .button.black {
-      background-color: #302006; }
-    .container-content .button.green {
-      background-color: #3A645D; }
-    .container-content .button:first-of-type {
-      margin-right: 0.75rem; }
-    .container-content .button:hover {
-      cursor: pointer; }
   .container-content #music-sheet {
     background: rgba(48, 32, 6, 0.5);
     border-radius: 3px;

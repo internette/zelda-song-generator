@@ -21,3 +21,7 @@ export function storeWindowWidth(width){
 export function toggleModal(visibility, modal_name){
   return {type: 'toggle-modal', visibility: visibility, modal_name: modal_name}
 }
+
+export function setEmail(email_address){
+  return {type: 'set-email', email_address: email_address}
+}

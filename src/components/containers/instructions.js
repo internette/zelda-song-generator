@@ -4,7 +4,7 @@ import { toggleModal } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    is_visible: state.modals.modal_name === 'instructions' ? state.modals.visibility : false
+    are_instructions_visible: state.modals.modal_name === 'instructions' ? state.modals.visibility : false
   }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {

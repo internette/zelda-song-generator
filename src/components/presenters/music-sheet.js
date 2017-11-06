@@ -5,15 +5,6 @@ import { letters } from '../exports/markov-music'
 import '../../styles/music-sheet.css'
 
 const MusicSheetPresenter = (props) => {
-  let button
-  if (props.filename.length > 0){
-    button = <a className="button green" href={props.filename}>Download Song</a>
-  } else {
-    button = <button className="button black" onClick={(e)=>{
-      props.showEmail()
-      props.changeStatus(e.currentTarget)
-    }}>Build My Song</button>
-  }
   return (
     <div>
       <div id="music-sheet">
@@ -31,7 +22,10 @@ const MusicSheetPresenter = (props) => {
             return <button className={classes} key={index} onClick={()=> { props.removeNote(props.notes, index) }}></button>
           })}
       </div>
-      {button}
+      <button className="button black" onClick={(e)=>{
+        props.showEmail()
+        props.changeStatus(e.currentTarget)
+      }}>Build My Song</button>
     </div>
   )
 }

@@ -1,7 +1,7 @@
 @import 'colors';
 @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900');
 
-#instructions-holder {
+.modal-container {
   top: 0;
   left: 0;
   width: 100%;
@@ -20,7 +20,7 @@
     height: 100%;
     background-color: $translucent_black;
   }
-  #instructions {
+  #instructions, #email {
     background: $green;
     color: $beige;
     position: relative;
@@ -47,11 +47,31 @@
       clear: both;
       border-bottom: 1px solid $gold;
     }
+    h3 + * {
+      font-family: system-ui;
+      font-size: 0.95rem;
+    }
+    h3 + div {
+      padding: 0 2rem;
+      label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        display: block;
+        font-weight: bold;
+        margin-top: 1.5rem;
+      }
+      input {
+        background: $translucent_black;
+        border: 0;
+        margin-top: 0.5rem;
+        border-bottom: 1px solid $border_beige;
+        padding: 0.5rem;
+        width: 75%;
+      }
+    }
     ul {
       margin: 0;
       padding: 1rem 2.5rem;
-      font-family: system-ui;
-      font-size: 0.95rem;
       li {
         margin-bottom: 0.5rem;
         letter-spacing: 0.2px;
@@ -67,7 +87,7 @@
         }
       }
     }
-    button {
+    .exit {
       border: 2px solid $translucent-black;
       background-color: $black;
       box-shadow: 1px 1px 1px rgba($beige, 0.6) inset, -1.5px -1.5px 1.5px $black inset;

@@ -136,31 +136,6 @@
     position: relative;
     margin-bottom: 1rem;
   }
-  .button {
-    font-size: 0.9rem;
-    font-weight: 500;
-    font-family: system-ui;
-    text-decoration: none;
-    text-transform: uppercase;
-    box-shadow: 1px 1px 1px $beige inset, 1px 1px 1px $black inset, 0 3px 4px 0 $translucent_black;
-    color: rgba($beige, 0.9);
-    border: 0;
-    padding: 0.6rem 0.75rem;
-    border-radius: 5px;
-    position: relative;
-    &.black {
-      background-color: $black;
-    }
-    &.green {
-      background-color: $green;
-    }
-    &:first-of-type {
-      margin-right: 0.75rem;
-    }
-    &:hover {
-      cursor: pointer;
-    }
-  }
   #music-sheet {
     background: $translucent_black;
     border-radius: 3px;

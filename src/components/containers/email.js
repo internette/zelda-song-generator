@@ -1,12 +1,13 @@
 import { connect } from 'react-redux'
-import EmailPresenter from '../presenters/instructions'
+import EmailPresenter from '../presenters/email'
 import { letters, markovMusic, generateTitle, base_url } from '../exports/markov-music'
-import { toggleModal } from '../actions'
+import { toggleModal, setEmail } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state)
   return {
-    is_visible: state.modals.modal_name === 'email' ? state.modals.visibility : false,
-    email: state.email.address,
+    is_email_visible: state.modals.modal_name === 'email' ? state.modals.visibility : false,
+    email_address: state.email.address,
     song_name: state.header.title,
     instrument: state.instrument.name,
     notes: state.musicSheet.notes,
@@ -17,6 +18,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     hideEmail: ()=> {
       dispatch(toggleModal(false, 'email'))
+    },
+    updateEmail: (value)=> {
+      dispatch(setEmail(value))
     },
     sendSong: (song, song_name, instrument, email_address)=> {
       const formatted_song = song.map(function(note_obj){
@@ -38,7 +42,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       }).then((response)=> {
         return response.text()
       }).then((url)=>{
-        dispatch(setAudioFileUrl(url))
+        // dispatch(setAudioFileUrl(url))
       })
     }
   }

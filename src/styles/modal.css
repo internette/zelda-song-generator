@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900");
-#instructions-holder {
+.modal-container {
   top: 0;
   left: 0;
   width: 100%;
@@ -7,16 +7,16 @@
   position: fixed;
   z-index: 1000;
   display: none; }
-  #instructions-holder.active {
+  .modal-container.active {
     display: block; }
-  #instructions-holder #backscreen {
+  .modal-container #backscreen {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(48, 32, 6, 0.5); }
-  #instructions-holder #instructions {
+  .modal-container #instructions, .modal-container #email {
     background: #3A645D;
     color: #F3ECDA;
     position: relative;
@@ -30,10 +30,10 @@
     max-width: 550px;
     padding: 0.75rem 0 2rem; }
     @media screen and (max-width: 768px) {
-      #instructions-holder #instructions {
+      .modal-container #instructions, .modal-container #email {
         width: 84vw;
         padding: 0.6rem 0 3rem; } }
-    #instructions-holder #instructions h3 {
+    .modal-container #instructions h3, .modal-container #email h3 {
       padding: 0.7rem 0 0.5rem;
       margin: 0 0 0.6rem 1.8rem;
       font-family: 'Alegreya Sans SC', sans-serif;
@@ -42,22 +42,38 @@
       width: 70%;
       clear: both;
       border-bottom: 1px solid #9A7A59; }
-    #instructions-holder #instructions ul {
-      margin: 0;
-      padding: 1rem 2.5rem;
+    .modal-container #instructions h3 + *, .modal-container #email h3 + * {
       font-family: system-ui;
       font-size: 0.95rem; }
-      #instructions-holder #instructions ul li {
+    .modal-container #instructions h3 + div, .modal-container #email h3 + div {
+      padding: 0 2rem; }
+      .modal-container #instructions h3 + div label, .modal-container #email h3 + div label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        display: block;
+        font-weight: bold;
+        margin-top: 1.5rem; }
+      .modal-container #instructions h3 + div input, .modal-container #email h3 + div input {
+        background: rgba(48, 32, 6, 0.5);
+        border: 0;
+        margin-top: 0.5rem;
+        border-bottom: 1px solid rgba(243, 236, 218, 0.4);
+        padding: 0.5rem;
+        width: 75%; }
+    .modal-container #instructions ul, .modal-container #email ul {
+      margin: 0;
+      padding: 1rem 2.5rem; }
+      .modal-container #instructions ul li, .modal-container #email ul li {
         margin-bottom: 0.5rem;
         letter-spacing: 0.2px; }
-        #instructions-holder #instructions ul li span {
+        .modal-container #instructions ul li span, .modal-container #email ul li span {
           background: #302006;
           padding: 0 0.2rem; }
-          #instructions-holder #instructions ul li span:first-of-type {
+          .modal-container #instructions ul li span:first-of-type, .modal-container #email ul li span:first-of-type {
             margin-left: 0.4rem; }
-          #instructions-holder #instructions ul li span:last-of-type {
+          .modal-container #instructions ul li span:last-of-type, .modal-container #email ul li span:last-of-type {
             padding: 0 0.35rem; }
-    #instructions-holder #instructions button {
+    .modal-container #instructions .exit, .modal-container #email .exit {
       border: 2px solid rgba(48, 32, 6, 0.5);
       background-color: #302006;
       box-shadow: 1px 1px 1px rgba(243, 236, 218, 0.6) inset, -1.5px -1.5px 1.5px #302006 inset;
@@ -70,7 +86,7 @@
       height: 2rem;
       line-height: 0;
       color: rgba(243, 236, 218, 0.8); }
-      #instructions-holder #instructions button:hover {
+      .modal-container #instructions .exit:hover, .modal-container #email .exit:hover {
         cursor: pointer; }
 
 #triforce, #triforce:before, #triforce:after {
