@@ -17,7 +17,6 @@
     "redux": "^3.7.2",
     "winston": "^2.4.0"
   },
-  "homepage" : "http://internette.github.io/zelda-song-generator",
   "proxy": "http://localhost:3000",
   "scripts": {
     "deploy": "npm run build",
