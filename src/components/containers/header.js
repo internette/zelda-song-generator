@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import HeaderPresenter from '../presenters/header'
-import { letters, markovMusic, generateTitle, base_url } from '../exports/markov-music'
+import { markovMusic, generateTitle } from '../exports/markov-music'
 import { setTitle, setNotes, toggleModal } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
