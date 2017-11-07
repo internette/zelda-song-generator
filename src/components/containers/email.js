@@ -39,10 +39,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           song_name: song_name,
           email: email_address
         })
-      }).then((response)=> {
-        return response.text()
-      }).then((url)=>{
-        // dispatch(setAudioFileUrl(url))
       })
     }
   }

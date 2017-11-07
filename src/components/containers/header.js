@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
 import HeaderPresenter from '../presenters/header'
 import { letters, markovMusic, generateTitle, base_url } from '../exports/markov-music'
-import { setTitle, setNotes, setAudioFileUrl, toggleModal } from '../actions'
+import { setTitle, setNotes, toggleModal } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
   return {
@@ -18,7 +18,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(toggleModal(true, 'instructions'))
     },
     randomizeSong: (instrument)=> {
-      dispatch(setAudioFileUrl(''))
       const song_name = generateTitle()
       const song = markovMusic(song_name)
       dispatch(setNotes(song))
@@ -38,16 +37,11 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           instrument: instrument,
           song_name: song_name
         })
-      }).then((response)=> {
-        return response.text()
-      }).then((url)=>{
-        dispatch(setAudioFileUrl(url))
       })
     },
     clearSong: ()=> {
       dispatch(setTitle(generateTitle()))
       dispatch(setNotes([]))
-      dispatch(setAudioFileUrl(''))
     }
   }
 }

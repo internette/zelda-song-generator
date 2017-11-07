@@ -6,10 +6,10 @@ const modals = (state = {}, action)=> {
         modal_name: action.modal_name
       })
     default: 
-    return Object.assign({}, state, {
-      visibility: false,
-      modal_name: ''
-    })
+      return Object.assign({}, state, {
+        visibility: false,
+        modal_name: ''
+      })
   }
 }
 

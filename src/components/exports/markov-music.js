@@ -39,7 +39,7 @@ export const preexisting_songs = [
   }
 ]
 
-export const base_url = 'http://34.228.201.183/api'
+export const base_url = 'http://34.196.83.48/api'
 
 export const letters = [
   {letter: "L", note: "D", button: "A"},

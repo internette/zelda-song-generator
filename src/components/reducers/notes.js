@@ -4,10 +4,6 @@ const musicSheet = (state = {}, action)=> {
       return Object.assign({}, state, {
         notes: action.notes
       })
-    case 'set-audio-filename':
-      return Object.assign({}, state, {
-        filename: action.filename
-      })
     default: 
       return state
   }

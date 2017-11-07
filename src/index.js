@@ -9,7 +9,7 @@ import App from './components/app'
 
 import { letters, markovMusic, generateTitle, base_url } from './components/exports/markov-music'
 
-import { setTitle, setNotes, setAudioFileUrl, setInstrument, storeWindowWidth, toggleModal, setEmail } from './components/actions'
+import { setTitle, setNotes, setInstrument, storeWindowWidth, toggleModal, setEmail } from './components/actions'
 
 import registerServiceWorker from './registerServiceWorker'
 
@@ -55,10 +55,6 @@ function uploadSong(song, song_name){
       instrument: store.getState().instrument.name,
       song_name: song_name
     })
-  }).then((response)=> {
-    return response.text()
-  }).then((url)=>{
-    store.dispatch(setAudioFileUrl(url))
   })
 }
 
@@ -76,7 +72,6 @@ uploadSong(formatted_song, init_song_name)
 document.addEventListener('keyup', function(ev){
   let music_notes = store.getState().musicSheet.notes.slice(0)
   if(ev.keyCode === 8){
-    store.dispatch(setAudioFileUrl(''))
     if(music_notes.length > 0 ){
       music_notes.splice(-1, 1)
       store.dispatch(setNotes(music_notes))
@@ -87,7 +82,6 @@ document.addEventListener('keyup', function(ev){
     if(music_notes.length < 8){
       let new_note = ''
       if (ev.keyCode === 65 ) {
-        store.dispatch(setAudioFileUrl(''))
         new_note = letters.filter((letter_obj)=> {
           if(letter_obj.button === 'A'){
             return letter_obj
@@ -95,7 +89,6 @@ document.addEventListener('keyup', function(ev){
           return false
         })[0].letter
       } else if(ev.keyCode >= 37 && ev.keyCode <= 40){
-        store.dispatch(setAudioFileUrl(''))
         const matching_direction = arrow_key_map.filter((arrow_key)=> {
           return arrow_key.key_code === ev.keyCode ? arrow_key : false
         })[0].arrow_direction
