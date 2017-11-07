@@ -4,6 +4,10 @@ const email = (state = {}, action)=> {
       return Object.assign({}, state, {
         address: action.email_address
       })
+    case 'set-visible-text':
+      return Object.assign({}, state, {
+        visible_text: action.visible_text
+      })
     default: 
       return state
   }

@@ -22,22 +22,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       const song = markovMusic(song_name)
       dispatch(setNotes(song))
       dispatch(setTitle(song_name))
-      const formatted_song = song.map(function(note_obj){
-        return letters.filter(function(letter_obj){
-          if(letter_obj.letter === note_obj){
-            return letter_obj
-          }
-          return false
-        })[0].note
-      }).join('%20');
-      fetch(`${base_url}/make-song`, {
-        method: 'post',
-        body: JSON.stringify({
-          notes: formatted_song,
-          instrument: instrument,
-          song_name: song_name
-        })
-      })
     },
     clearSong: ()=> {
       dispatch(setTitle(generateTitle()))

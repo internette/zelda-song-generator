@@ -10,10 +10,6 @@ export function setInstrument(instrument) {
   return {type: 'set-instrument', instrument: instrument}
 }
 
-export function setAudioFileUrl(name) {
-  return {type: 'set-audio-filename', filename: name}
-}
-
 export function storeWindowWidth(width){
   return {type: 'store-window-width', width: width}
 }
@@ -24,4 +20,8 @@ export function toggleModal(visibility, modal_name){
 
 export function setEmail(email_address){
   return {type: 'set-email', email_address: email_address}
+}
+
+export function setVisibleText(visible_text){
+  return {type: 'set-visible-text', visible_text: visible_text}
 }
