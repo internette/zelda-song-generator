@@ -5,7 +5,6 @@ const email = (state = {}, action)=> {
         address: action.email_address
       })
     case 'set-visible-text':
-      console.log('this was called')
       return Object.assign({}, state, {
         visible_text: action.visible_text
       })
