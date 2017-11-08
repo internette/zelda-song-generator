@@ -25,6 +25,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(toggleModal(true, 'email'))
     },
     backToInstructions: ()=> {
+      document.querySelector('.black.button').classList.remove('pending')
       dispatch(setVisibleText('email-instructions'))
       dispatch(toggleModal(true, 'email'))
     },
