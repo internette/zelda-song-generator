@@ -112,7 +112,7 @@
   .container-content #music-sheet {
     background: rgba(48, 32, 6, 0.5);
     border-radius: 3px;
-    padding: 1rem;
+    padding: 1.75rem 1rem;
     box-shadow: 1.5px 1.5px 1.5px rgba(243, 236, 218, 0.4), -1.5px -1.5px 1.5px #302006;
     background-image: linear-gradient(to bottom, rgba(48, 32, 6, 0.5) -2%, transparent 5%);
     margin-top: 1.5rem;

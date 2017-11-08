@@ -24,6 +24,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     changeStatus: (elm)=> {
       elm.className += ' pending'
     },
+    showAttributions: ()=> {
+      dispatch(toggleModal(true, 'attributions'))
+    },
     showEmail: ()=> {
       dispatch(toggleModal(true, 'email'))
     }

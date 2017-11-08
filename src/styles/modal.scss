@@ -20,7 +20,7 @@
     height: 100%;
     background-color: $translucent_black;
   }
-  #instructions, #email {
+  #instructions, #email, #attributions {
     background: $green;
     color: $beige;
     position: relative;
@@ -75,6 +75,12 @@
       li {
         margin-bottom: 0.5rem;
         letter-spacing: 0.2px;
+        a {
+          color: $orange;
+          &:hover {
+            color: $border_beige;
+          }
+        }
         span {
           background: $black;
           padding: 0 0.2rem;

@@ -26,11 +26,13 @@ const MusicSheetPresenter = (props) => {
         props.showEmail()
         props.changeStatus(e.currentTarget)
       }}>Build My Song</button>
+      <button id="attributions" className="wood" onClick={props.showAttributions}>Attributions</button>
     </div>
   )
 }
 
 MusicSheetPresenter.propTypes = {
+  showAttributions: PropTypes.func.isRequired,
   showEmail: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired,
   changeStatus: PropTypes.func.isRequired,

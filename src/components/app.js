@@ -5,6 +5,7 @@ import MusicSheet from './containers/music-sheet'
 import Instruments from './containers/instruments'
 import Instructions from './containers/instructions'
 import Email from './containers/email'
+import Attributions from './containers/attributions'
 
 import '../styles/app.css'
 
@@ -22,6 +23,7 @@ const App = ()=> {
       </div>
       <Instructions/>
       <Email/>
+      <Attributions/>
     </div>
   );
 }

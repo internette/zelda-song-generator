@@ -10,6 +10,12 @@ html, body {
   box-sizing: border-box;
 }
 
+button, a {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 #root {
   height: 100%;
   overflow-y: hidden;
@@ -55,4 +61,20 @@ html, body {
   &:hover {
     cursor: pointer;
   }
+}
+
+.wood {
+  background-image: url('../assets/seamless-wood-texture.jpg');
+  background-color: transparent;
+  color: $black;
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-family: system-ui;
+  text-decoration: none;
+  text-transform: uppercase;
+  box-shadow: 1px 1px 1px $beige inset, 1px 1px 1px $black inset, 0 3px 3px 1px $translucent_black;
+  border: 0;
+  padding: 0.6rem 0.75rem;
+  border-radius: 3px;
+  font-weight: bold;
 }
