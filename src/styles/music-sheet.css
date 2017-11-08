@@ -136,3 +136,5 @@
   .container-content .note.a:after {
     top: 0.35rem;
     left: 0.65rem; }
+  .container-content .note:nth-child(7), .container-content .note:nth-child(8) {
+    margin-top: 2rem; }
