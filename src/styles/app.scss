@@ -69,7 +69,6 @@ button, a {
 }
 
 .wood {
-  background-image: url('../assets/seamless-wood-texture.jpg');
   background-color: transparent;
   color: $black;
   font-size: 0.9rem;
@@ -82,4 +81,10 @@ button, a {
   padding: 0.6rem 0.75rem;
   border-radius: 3px;
   font-weight: bold;
+  .webp & {
+    background-image: url('../assets/seamless-wood-texture.webp');
+  }
+  .no-webp & {
+    background-image: url('../assets/seamless-wood-texture.jpg');
+  }
 }
