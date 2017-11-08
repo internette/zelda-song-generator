@@ -152,6 +152,9 @@
         color: $border_beige;
       }
     }
+    & + div {
+      margin-top: 1.5rem;
+    }
   }
   @media screen and (max-width: 768px){
     h1 {
@@ -162,18 +165,17 @@
     #buttons {
       text-align: center;
     }
-  }
-  #music-sheet + div {
-    margin-top: 1.5rem;
-    text-align: center;
-  }
-  .note {
-    &.a:after {
-      top: 0.35rem;
-      left: 0.65rem;
+    #music-sheet + div {
+      text-align: center;
     }
-    &:nth-child(7), &:nth-child(8) {
-      margin-top: 2rem;
+    .note {
+      &.a:after {
+        top: 0.35rem;
+        left: 0.65rem;
+      }
+      &:nth-child(7), &:nth-child(8) {
+        margin-top: 2rem;
+      }
     }
   }
 }

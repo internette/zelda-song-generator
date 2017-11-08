@@ -123,18 +123,19 @@
       .container-content #music-sheet + .button.pending {
         box-shadow: 1.5px 1.5px 1.5px rgba(243, 236, 218, 0.4), -1.5px -1.5px 1px #302006;
         color: rgba(243, 236, 218, 0.4); }
+    .container-content #music-sheet + div {
+      margin-top: 1.5rem; }
   @media screen and (max-width: 768px) {
     .container-content h1 {
       font-size: 2.2rem;
       text-align: center;
       margin-bottom: 0.4rem; }
     .container-content #buttons {
-      text-align: center; } }
-  .container-content #music-sheet + div {
-    margin-top: 1.5rem;
-    text-align: center; }
-  .container-content .note.a:after {
-    top: 0.35rem;
-    left: 0.65rem; }
-  .container-content .note:nth-child(7), .container-content .note:nth-child(8) {
-    margin-top: 2rem; }
+      text-align: center; }
+    .container-content #music-sheet + div {
+      text-align: center; }
+    .container-content .note.a:after {
+      top: 0.35rem;
+      left: 0.65rem; }
+    .container-content .note:nth-child(7), .container-content .note:nth-child(8) {
+      margin-top: 2rem; } }
