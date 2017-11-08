@@ -112,3 +112,15 @@
 
 #triforce:after {
   right: -1.08333px; }
+
+input {
+  color: #F3ECDA; }
+
+#error {
+  background: #E98E4F;
+  color: #302006;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  display: none; }
+  #error.active {
+    display: block; }

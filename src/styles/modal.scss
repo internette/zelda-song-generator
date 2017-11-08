@@ -131,3 +131,18 @@ $triangle_size: 20px;
 #triforce:after {
   right: -($triangle_size - 7)/12;
 }
+
+input {
+  color: $beige
+}
+
+#error {
+  background: $orange;
+  color: $black;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
+  display: none;
+  &.active {
+    display: block;
+  }
+}
