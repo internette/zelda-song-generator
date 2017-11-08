@@ -22,11 +22,13 @@ const MusicSheetPresenter = (props) => {
             return <button className={classes} key={index} onClick={()=> { props.removeNote(props.notes, index) }}></button>
           })}
       </div>
-      <button className="button black" onClick={(e)=>{
-        props.showEmail()
-        props.changeStatus(e.currentTarget)
-      }}>E-mail Song</button>
-      <button id="attributions" className="wood" onClick={props.showAttributions}>Attributions</button>
+      <div>
+        <button className="button black" onClick={(e)=>{
+          props.showEmail()
+          props.changeStatus(e.currentTarget)
+        }}>E-mail Song</button>
+        <button id="attributions" className="wood" onClick={props.showAttributions}>Attributions</button>
+      </div>
     </div>
   )
 }

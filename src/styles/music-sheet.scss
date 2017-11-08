@@ -163,4 +163,12 @@
       text-align: center;
     }
   }
+  #music-sheet + div {
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  .note.a:after {
+    top: 0.35rem;
+    left: 0.65rem;
+  }
 }

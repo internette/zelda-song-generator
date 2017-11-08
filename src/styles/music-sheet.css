@@ -130,3 +130,9 @@
       margin-bottom: 0.4rem; }
     .container-content #buttons {
       text-align: center; } }
+  .container-content #music-sheet + div {
+    margin-top: 1.5rem;
+    text-align: center; }
+  .container-content .note.a:after {
+    top: 0.35rem;
+    left: 0.65rem; }
