@@ -13,7 +13,7 @@ import { setTitle, setNotes, setInstrument, storeWindowWidth, toggleModal, setEm
 
 import registerServiceWorker from './registerServiceWorker'
 
-let store = createStore(AppReducer);
+let store = createStore(AppReducer)
 
 const init_song_name = generateTitle()
 store.dispatch(setTitle(init_song_name))
@@ -99,6 +99,6 @@ window.addEventListener('resize', function(){
   store.dispatch(storeWindowWidth(window.innerWidth))
 })
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'))
 
-registerServiceWorker();
+registerServiceWorker()

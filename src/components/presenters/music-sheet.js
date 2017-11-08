@@ -14,8 +14,8 @@ const MusicSheetPresenter = (props) => {
               if(letter_obj.letter === note){
                 return letter_obj
               }
-              return false;
-            })[0].button.toLowerCase();
+              return false
+            })[0].button.toLowerCase()
             if(["X", "A", "R", "Y"].indexOf(note) > -1){
               classes += ' cpad'
             }

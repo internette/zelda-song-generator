@@ -45,7 +45,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             }
             return false
           })[0].note
-        }).join('%20');
+        }).join('%20')
         document.getElementById('submit-send-email').classList.add('pending')
         fetch(`${base_url}/make-song`, {
           method: 'post',

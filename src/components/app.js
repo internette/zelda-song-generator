@@ -25,7 +25,7 @@ const App = ()=> {
       <Email/>
       <Attributions/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
