@@ -8,7 +8,7 @@ const AttributionsPresenter = (props) => {
   return (
     <div id="attributions-holder" className={classes}>
       <div className="backscreen"></div>
-      <div id="email">
+      <div id="attributions">
         <button onClick={props.hideAttributions} className="exit" aria-label="exit the attributions modal">&times;</button>
         <h3>Attributions</h3>
         <ul>
