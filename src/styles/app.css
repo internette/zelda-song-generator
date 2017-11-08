@@ -1,8 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:900");
 html, body {
   margin: 0;
-  background-image: url("../assets/seamless-wood-texture.jpg");
   height: 100%; }
+  html.webp, body.webp {
+    background-image: url("../assets/seamless-wood-texture.webp"); }
+  html.no-webp, body.no-webp {
+    background-image: url("../assets/seamless-wood-texture.jpg"); }
 
 * {
   box-sizing: border-box; }
