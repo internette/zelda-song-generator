@@ -1,7 +1,14 @@
 {
   "main.css": "static/css/main.0f9c0f2b.css",
   "main.css.map": "static/css/main.0f9c0f2b.css.map",
-  "main.js": "static/js/main.4b078403.js",
-  "main.js.map": "static/js/main.4b078403.js.map",
+  "main.js": "static/js/main.d3189519.js",
+  "main.js.map": "static/js/main.d3189519.js.map",
+  "static/media/flute.png": "static/media/flute.d108d7c9.png",
+  "static/media/frog.png": "static/media/frog.35999678.png",
+  "static/media/harp.png": "static/media/harp.341847f6.png",
+  "static/media/impa.png": "static/media/impa.6d9ce615.png",
+  "static/media/malon.png": "static/media/malon.d2b05b62.png",
+  "static/media/ocarina.png": "static/media/ocarina.292966ef.png",
+  "static/media/pipes.png": "static/media/pipes.49647bd1.png",
   "static/media/seamless-wood-texture.jpg": "static/media/seamless-wood-texture.79c6bfd5.jpg"
 }
