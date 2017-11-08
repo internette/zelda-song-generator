@@ -13,9 +13,9 @@ const AttributionsPresenter = (props) => {
         <h3>Attributions</h3>
         <ul>
           <li>Any and all Zelda-related content belongs to Nintendo</li>
-          <li>Zelda songs were found at the following link: <a href="http://noproblo.dayjo.org/ZeldaSounds/" target="_blank">Zelda Sounds</a></li>
-          <li><a href="https://www.linkshideaway.com/majoras-mask-3d/song-list/" target="_blank">Link's Hideaway</a> provides a list of all Majora's Mask songs to verify pre-existing songs.</li>
-          <li>The color palette used is <a href="https://dribbble.com/shots/409863--107" target="_blank">_107</a> by <a href="https://dribbble.com/JustinMezzell" target="_blank">Justin Mezzell</a></li>
+          <li>Zelda songs were found at the following link: <a href="http://noproblo.dayjo.org/ZeldaSounds/" target="_blank" rel="noopener noreferrer">Zelda Sounds</a></li>
+          <li><a href="https://www.linkshideaway.com/majoras-mask-3d/song-list/" target="_blank" rel="noopener noreferrer">Link's Hideaway</a> provides a list of all Majora's Mask songs to verify pre-existing songs.</li>
+          <li>The color palette used is <a href="https://dribbble.com/shots/409863--107" target="_blank" rel="noopener noreferrer">_107</a> by <a href="https://dribbble.com/JustinMezzell" target="_blank" rel="noopener noreferrer">Justin Mezzell</a></li>
         </ul>
         <div id="triforce"></div>
       </div>
