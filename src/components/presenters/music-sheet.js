@@ -25,7 +25,7 @@ const MusicSheetPresenter = (props) => {
       <button className="button black" onClick={(e)=>{
         props.showEmail()
         props.changeStatus(e.currentTarget)
-      }}>Build My Song</button>
+      }}>E-mail Song</button>
       <button id="attributions" className="wood" onClick={props.showAttributions}>Attributions</button>
     </div>
   )
