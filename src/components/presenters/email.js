@@ -14,11 +14,11 @@ const EmailPresenter = (props) => {
   }
   return (
     <div id="email-holder" className={classes}>
-      <div id="backscreen"></div>
+      <div className="backscreen"></div>
       <div id="email">
         <button onClick={props.hideEmail} className="exit" aria-label="exit the e-mail modal">&times;</button>
         {email_modal_text}
-        <div id="triforce"></div>
+        <div className="triforce"></div>
       </div>
     </div>
   )

@@ -7,7 +7,7 @@ const AttributionsPresenter = (props) => {
   const classes = props.is_attributions_visible ? 'active modal-container' : 'modal-container'
   return (
     <div id="attributions-holder" className={classes}>
-      <div id="backscreen"></div>
+      <div className="backscreen"></div>
       <div id="email">
         <button onClick={props.hideAttributions} className="exit" aria-label="exit the attributions modal">&times;</button>
         <h3>Attributions</h3>
@@ -17,7 +17,7 @@ const AttributionsPresenter = (props) => {
           <li><a href="https://www.linkshideaway.com/majoras-mask-3d/song-list/" target="_blank" rel="noopener noreferrer">Link's Hideaway</a> provides a list of all Majora's Mask songs to verify pre-existing songs.</li>
           <li>The color palette used is <a href="https://dribbble.com/shots/409863--107" target="_blank" rel="noopener noreferrer">_107</a> by <a href="https://dribbble.com/JustinMezzell" target="_blank" rel="noopener noreferrer">Justin Mezzell</a></li>
         </ul>
-        <div id="triforce"></div>
+        <div className="triforce"></div>
       </div>
     </div>
   )

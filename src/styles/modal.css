@@ -9,7 +9,7 @@
   display: none; }
   .modal-container.active {
     display: block; }
-  .modal-container #backscreen {
+  .modal-container .backscreen {
     position: absolute;
     top: 0;
     left: 0;
@@ -93,28 +93,28 @@
       .modal-container #instructions .exit:hover, .modal-container #email .exit:hover, .modal-container #attributions .exit:hover {
         cursor: pointer; }
 
-#triforce, #triforce:before, #triforce:after {
+.triforce, .triforce:before, .triforce:after {
   width: 0;
   height: 0;
   border-left: 13px transparent solid;
   border-right: 13px transparent solid;
   border-bottom: 20px #9A7A59 solid; }
 
-#triforce {
+.triforce {
   position: absolute;
   bottom: 2rem;
   right: 1.25rem; }
 
-#triforce:before, #triforce:after {
+.triforce:before, .triforce:after {
   content: '';
   display: block;
   position: absolute;
   top: 20px; }
 
-#triforce:before {
+.triforce:before {
   left: -1.08333px; }
 
-#triforce:after {
+.triforce:after {
   right: -1.08333px; }
 
 input {

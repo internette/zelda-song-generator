@@ -12,7 +12,7 @@
   &.active {
     display: block;
   }
-  #backscreen {
+  .backscreen {
     position: absolute;
     top: 0;
     left: 0;
@@ -113,28 +113,28 @@
   }
 }
 $triangle_size: 20px;
-#triforce, #triforce:before, #triforce:after {
+.triforce, .triforce:before, .triforce:after {
   width: 0;
   height: 0;
   border-left: ($triangle_size - 7) transparent solid;
   border-right: ($triangle_size - 7) transparent solid;
   border-bottom: $triangle_size $gold solid;
 }
-#triforce {
+.triforce {
   position: absolute;
   bottom: 2rem;
   right: 1.25rem;
 }
-#triforce:before, #triforce:after {
+.triforce:before, .triforce:after {
   content: '';
   display: block;
   position: absolute;
   top: $triangle_size;
 }
-#triforce:before {
+.triforce:before {
   left: -($triangle_size - 7)/12;
 }
-#triforce:after {
+.triforce:after {
   right: -($triangle_size - 7)/12;
 }
 

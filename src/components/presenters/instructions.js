@@ -7,7 +7,7 @@ const InstructionsPresenter = (props) => {
   const classes = props.are_instructions_visible ? 'active modal-container' : 'modal-container'
   return (
     <div id="instructions-holder" className={classes}>
-      <div id="backscreen"></div>
+      <div className="backscreen"></div>
       <div id="instructions">
         <button onClick={props.hideInstructions} className="exit" aria-label="exit the instructions modal">&times;</button>
         <h3>Interaction Options</h3>
@@ -18,7 +18,7 @@ const InstructionsPresenter = (props) => {
           <li>Click the generate button to generate a new song and title</li>
           <li>Click the title to generate a new title</li>
         </ul>
-        <div id="triforce"></div>
+        <div className="triforce"></div>
       </div>
     </div>
   )
