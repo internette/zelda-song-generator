@@ -9,7 +9,7 @@ const AttributionsPresenter = (props) => {
     <div id="attributions-holder" className={classes}>
       <div id="backscreen"></div>
       <div id="email">
-        <button onClick={props.hideAttributions} className="exit">&times;</button>
+        <button onClick={props.hideAttributions} className="exit" aria-label="exit the attributions modal">&times;</button>
         <h3>Attributions</h3>
         <ul>
           <li>Any and all Zelda-related content belongs to Nintendo</li>

@@ -19,7 +19,7 @@ const MusicSheetPresenter = (props) => {
             if(["X", "A", "R", "Y"].indexOf(note) > -1){
               classes += ' cpad'
             }
-            return <button className={classes} key={index} onClick={()=> { props.removeNote(props.notes, index) }}></button>
+            return <button aria-label={"click to remove the " + index + " note"} className={classes} key={index} onClick={()=> { props.removeNote(props.notes, index) }}></button>
           })}
       </div>
       <div>

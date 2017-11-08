@@ -9,7 +9,7 @@ const InstructionsPresenter = (props) => {
     <div id="instructions-holder" className={classes}>
       <div id="backscreen"></div>
       <div id="instructions">
-        <button onClick={props.hideInstructions} className="exit">&times;</button>
+        <button onClick={props.hideInstructions} className="exit" aria-label="exit the instructions modal">&times;</button>
         <h3>Interaction Options</h3>
         <ul>
           <li>Click notes to remove them</li>
