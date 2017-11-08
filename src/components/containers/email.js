@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     },
     backToInstructions: ()=> {
       dispatch(setVisibleText('email-instructions'))
+      dispatch(toggleModal(true, 'email'))
     },
     sendSong: (song, song_name, instrument, email_address)=> {
       const formatted_song = song.map(function(note_obj){
@@ -48,6 +49,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         })
       }).then(()=> {
         dispatch(setVisibleText('email-sent'))
+        dispatch(toggleModal(true, 'email'))
       })
     }
   }
