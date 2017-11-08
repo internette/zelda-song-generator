@@ -83,7 +83,14 @@
     width: 5rem;
     margin: 0.5rem auto;
     overflow: hidden;
-    
+    @each $instrument in drums, flute, frog, guitar, harp, impa, malon, music_box, ocarina, pipes {
+      .webp &.#{$instrument} {
+        background-image: url('../assets/instruments/'+$instrument+'.webp');
+      }
+      .no-webp &.#{$instrument} {
+        background-image: url('../assets/instruments/'+$instrument+'.png');
+      }
+    }
   }
   span {
     display: inline-block;

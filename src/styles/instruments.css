@@ -74,6 +74,46 @@
     width: 5rem;
     margin: 0.5rem auto;
     overflow: hidden; }
+    .webp .instrument .img.drums {
+      background-image: url("../assets/instruments/drums.webp"); }
+    .no-webp .instrument .img.drums {
+      background-image: url("../assets/instruments/drums.png"); }
+    .webp .instrument .img.flute {
+      background-image: url("../assets/instruments/flute.webp"); }
+    .no-webp .instrument .img.flute {
+      background-image: url("../assets/instruments/flute.png"); }
+    .webp .instrument .img.frog {
+      background-image: url("../assets/instruments/frog.webp"); }
+    .no-webp .instrument .img.frog {
+      background-image: url("../assets/instruments/frog.png"); }
+    .webp .instrument .img.guitar {
+      background-image: url("../assets/instruments/guitar.webp"); }
+    .no-webp .instrument .img.guitar {
+      background-image: url("../assets/instruments/guitar.png"); }
+    .webp .instrument .img.harp {
+      background-image: url("../assets/instruments/harp.webp"); }
+    .no-webp .instrument .img.harp {
+      background-image: url("../assets/instruments/harp.png"); }
+    .webp .instrument .img.impa {
+      background-image: url("../assets/instruments/impa.webp"); }
+    .no-webp .instrument .img.impa {
+      background-image: url("../assets/instruments/impa.png"); }
+    .webp .instrument .img.malon {
+      background-image: url("../assets/instruments/malon.webp"); }
+    .no-webp .instrument .img.malon {
+      background-image: url("../assets/instruments/malon.png"); }
+    .webp .instrument .img.music_box {
+      background-image: url("../assets/instruments/music_box.webp"); }
+    .no-webp .instrument .img.music_box {
+      background-image: url("../assets/instruments/music_box.png"); }
+    .webp .instrument .img.ocarina {
+      background-image: url("../assets/instruments/ocarina.webp"); }
+    .no-webp .instrument .img.ocarina {
+      background-image: url("../assets/instruments/ocarina.png"); }
+    .webp .instrument .img.pipes {
+      background-image: url("../assets/instruments/pipes.webp"); }
+    .no-webp .instrument .img.pipes {
+      background-image: url("../assets/instruments/pipes.png"); }
   .instrument span {
     display: inline-block;
     width: 90%;
