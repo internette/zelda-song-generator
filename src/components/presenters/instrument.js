@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const InstrumentPresenter = (props) => {
-  const img_src = 'https://s3.amazonaws.com/zelda-song-generator/images/' + props.name + '.png'
+  const img_src = process.env.PUBLIC_URL + '/images/instruments/' + props.name + '.png'
   const alt = 'Click here to set the instrument to be ' + props.formatted_name
   const classes = props.active_instrument === props.name ? 'active instrument' : 'instrument'
   return (
