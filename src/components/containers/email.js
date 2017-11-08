@@ -17,6 +17,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     hideEmail: ()=> {
       dispatch(toggleModal(false, 'email'))
+      dispatch(setVisibleText('email-instruction'))
+      document.getElementById('music-sheet').nextElementSibling.classList.remove('pending')
     },
     updateEmail: (email_address)=> {
       dispatch(setEmail(email_address))
@@ -35,6 +37,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           return false
         })[0].note
       }).join('%20');
+      document.getElementById('submit-send-email').classList.add('pending')
       fetch(`${base_url}/make-song`, {
         method: 'post',
         headers: {
