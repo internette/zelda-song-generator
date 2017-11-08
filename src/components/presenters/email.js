@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import '../../styles/modal.css'
-import mp3_file from '../../assets/hey-listen.mp3';
+import mp3_file from '../../assets/hey-listen.mp3'
 
 const EmailPresenter = (props) => {
   const classes = props.is_email_visible ? 'active modal-container' : 'modal-container'
