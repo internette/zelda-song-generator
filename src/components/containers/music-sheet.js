@@ -21,6 +21,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       })
       dispatch(setNotes(filtered_notes))
     },
+    changeTimeValue: (notes, time_index)=> {
+      // const updated_notes = notes.forEach(function(note, curr_index){
+      //   if(curr_index === index){
+      //     note.time_value = 
+      //   }
+      //   return note
+      // })
+      // dispatch(setNotes(filtered_notes))
+    },
     changeStatus: (elm)=> {
       elm.className += ' pending'
     },

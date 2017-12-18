@@ -8,18 +8,32 @@ const MusicSheetPresenter = (props) => {
   return (
     <div>
       <div id="music-sheet">
-        {props.notes.map((note, index) => {
+        {props.notes.map((note_obj, index) => {
             let classes = 'note'
             classes += ' ' + letters.filter(function(letter_obj){
-              if(letter_obj.letter === note){
+              if(letter_obj.letter === note_obj.note){
                 return letter_obj
               }
               return false
             })[0].button.toLowerCase()
-            if(["X", "A", "R", "Y"].indexOf(note) > -1){
+            if(["X", "A", "R", "Y"].indexOf(note_obj.note) > -1){
               classes += ' cpad'
             }
-            return <button aria-label={"click to remove the " + index + " note"} className={classes} key={index} onClick={()=> { props.removeNote(props.notes, index) }}></button>
+            let time_val_class = 'time-value'
+            switch(note_obj.time_value){
+              case 0.1:
+                time_val_class += ' quarter'
+                break
+              case 0.25:
+                time_val_class += ' half'
+                break
+              case 0.5:
+                time_val_class += ' whole'
+                break
+              default:
+                break
+            }
+            return <div key={index} className="note-container"><div className="remove" onClick={()=> { props.removeNote(props.notes, index) }}>&times;</div><div aria-label={"click to remove the " + index + " note"} className={classes}></div><div className={time_val_class} onClick={()=> { props.changeTimeValue(props.notes, index) }}></div></div>
           })}
       </div>
       <div>
@@ -37,6 +51,7 @@ MusicSheetPresenter.propTypes = {
   showAttributions: PropTypes.func.isRequired,
   showEmail: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired,
+  changeTimeValue: PropTypes.func.isRequired,
   changeStatus: PropTypes.func.isRequired,
   notes: PropTypes.array.isRequired,
   filename: PropTypes.string.isRequired

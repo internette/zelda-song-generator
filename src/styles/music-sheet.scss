@@ -1,10 +1,48 @@
 @import 'colors';
+$button_size: 36px;
+.note-container {
+  width: $button_size + 20;
+  height: $button_size + 20;
+  position: relative;
+  display: inline-block;
+  &:hover {
+    .remove, .change-note {
+      display: block;
+    }
+  }
+}
+.remove, .time-value {
+  border-radius: 50%;
+  display: none;
+  z-index: 10;
+  background-color: $black;
+  box-shadow: 1px 1px 1px $beige inset;
+  position: absolute;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.remove {
+  color: white;
+  top: -7px;
+  left: 0px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+}
+
+.time-value {
+  width: 25px;
+  height: 25px;
+  bottom: 0;
+}
+
 .note {
-  $button_size: 36px;
   width: $button_size;
   height: $button_size;
-  border-radius: 50%;
   position: relative;
+  border-radius: 50%;
   border: 0;
   margin: 0 0.8rem;
   &:hover {

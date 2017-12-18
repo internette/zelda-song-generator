@@ -66,6 +66,9 @@ button, a {
   &:hover {
     cursor: pointer;
   }
+  &.active {
+    box-shadow: 1px 1px 1px $beige, -1px -1px 1px $black inset;
+  }
 }
 
 .wood {
