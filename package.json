@@ -19,7 +19,7 @@
   "homepage": "https://acjanus.co/zelda-song-generator",
   "proxy": "http://localhost:3000",
   "scripts": {
-    "deploy" : "npm run build&&gh-pages -d build",
+    "deploy": "npm run build&&gh-pages -d build",
     "build-css": "node-sass-chokidar src/ -o src/",
     "watch-css": "npm run build-css && node-sass-chokidar src/styles/ -o src/styles/ --watch --recursive",
     "start-js": "react-scripts start",
