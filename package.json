@@ -17,7 +17,6 @@
     "winston": "^2.4.0"
   },
   "homepage": "https://acjanus.co/zelda-song-generator",
-  "proxy": "http://localhost:3000",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
