@@ -4,7 +4,6 @@ import { time_values } from '../exports/markov-music'
 import { setNotes, toggleModal } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
-  console.log(state.musicSheet.notes)
   return {
     song_name: state.header.title,
     notes: state.musicSheet.notes,
