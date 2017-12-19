@@ -83,7 +83,7 @@ document.addEventListener('keyup', function(ev){
           new_note = undefined
         }
         if(new_note){
-          music_notes.push(new_note)
+          music_notes.push({note: new_note, time_value: 0.25})
           store.dispatch(setNotes(music_notes))
         }
       } else {

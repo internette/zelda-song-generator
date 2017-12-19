@@ -25,7 +25,7 @@ InstrumentsPresenter.propTypes = {
   instruments: PropTypes.arrayOf(PropTypes.shape({
     name: PropTypes.string.isRequired,
     formatted_name: PropTypes.string.isRequired
-  }).isRequired).isRequired,
+  }).isRequired).isRequired
 }
 
 

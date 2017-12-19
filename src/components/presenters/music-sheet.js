@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { letters } from '../exports/markov-music'
-
 import '../../styles/music-sheet.css'
 
 const MusicSheetPresenter = (props) => {
@@ -33,7 +32,7 @@ const MusicSheetPresenter = (props) => {
               default:
                 break
             }
-            return <div key={index} className="note-container"><div className="remove" onClick={()=> { props.removeNote(props.notes, index) }}>&times;</div><div aria-label={"click to remove the " + index + " note"} className={classes}></div><div className={time_val_class} onClick={()=> { props.changeTimeValue(props.notes, index) }}></div></div>
+            return <div className="note-container" key={index}><div className="remove" onClick={()=> {props.removeNote(props.notes, index)}}>&times;</div><div aria-label={"click to remove the " + (index + 1) + " note"} className={classes}></div><div className={time_val_class} onClick={()=> { props.changeTimeValue(props.notes, note_obj, index) }}><div></div></div></div>
           })}
       </div>
       <div>
@@ -51,8 +50,8 @@ MusicSheetPresenter.propTypes = {
   showAttributions: PropTypes.func.isRequired,
   showEmail: PropTypes.func.isRequired,
   removeNote: PropTypes.func.isRequired,
-  changeTimeValue: PropTypes.func.isRequired,
   changeStatus: PropTypes.func.isRequired,
+  changeTimeValue: PropTypes.func.isRequired,
   notes: PropTypes.array.isRequired,
   filename: PropTypes.string.isRequired
 }

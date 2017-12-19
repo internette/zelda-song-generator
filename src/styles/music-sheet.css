@@ -1,8 +1,104 @@
+.note-container {
+  width: 56px;
+  height: 56px;
+  position: relative;
+  display: inline-block; }
+  .note-container:hover .remove, .note-container:hover .time-value {
+    display: block; }
+
+.remove, .time-value {
+  border-radius: 50%;
+  display: none;
+  z-index: 10;
+  background-color: #302006;
+  box-shadow: 1px 1px 1px #F3ECDA inset;
+  position: absolute; }
+  .remove:hover, .time-value:hover {
+    cursor: pointer; }
+
+.remove {
+  color: white;
+  top: -7px;
+  left: 0px;
+  text-align: center;
+  width: 20px;
+  height: 20px; }
+
+.time-value {
+  width: 25px;
+  height: 25px;
+  bottom: 0;
+  right: 0; }
+  .time-value.quarter div {
+    width: 8px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 8px;
+    transform: rotate(-33deg); }
+    .time-value.quarter div:before {
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: white;
+      height: 10px;
+      width: 1.5px;
+      right: -1px;
+      top: -5px;
+      transform: rotate(33deg); }
+  .time-value.half div {
+    width: 9px;
+    height: 7px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 8px; }
+    .time-value.half div:before, .time-value.half div:after {
+      content: '';
+      display: block;
+      position: absolute; }
+    .time-value.half div:before {
+      background-color: white;
+      height: 10px;
+      width: 1.5px;
+      right: 0;
+      top: -7px; }
+    .time-value.half div:after {
+      width: 6px;
+      height: 5px;
+      left: 2px;
+      bottom: 1px;
+      background-color: #302006;
+      border-radius: 50%;
+      transform: rotate(-45deg); }
+  .time-value.whole div {
+    width: 10px;
+    height: 7px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 8px; }
+    .time-value.whole div:after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 6px;
+      height: 5px;
+      left: 2px;
+      bottom: 1px;
+      background-color: #302006;
+      border-radius: 50%;
+      transform: rotate(45deg); }
+
 .note {
   width: 36px;
   height: 36px;
-  border-radius: 50%;
   position: relative;
+  border-radius: 50%;
   border: 0;
   margin: 0 0.8rem; }
   .note:hover {

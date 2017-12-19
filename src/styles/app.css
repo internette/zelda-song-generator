@@ -51,6 +51,8 @@ button:hover, a:hover {
     margin-right: 0.75rem; }
   .button:hover {
     cursor: pointer; }
+  .button.active {
+    box-shadow: 1px 1px 1px #F3ECDA, -1px -1px 1px #302006 inset; }
 
 .wood {
   background-color: transparent;

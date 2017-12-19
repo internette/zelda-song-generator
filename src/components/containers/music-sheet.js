@@ -1,8 +1,10 @@
 import { connect } from 'react-redux'
 import MusicSheetPresenter from '../presenters/music-sheet'
+import { time_values } from '../exports/markov-music'
 import { setNotes, toggleModal } from '../actions'
 
 const mapStateToProps = (state, ownProps) => {
+  console.log(state.musicSheet.notes)
   return {
     song_name: state.header.title,
     notes: state.musicSheet.notes,
@@ -21,17 +23,15 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       })
       dispatch(setNotes(filtered_notes))
     },
-    changeTimeValue: (notes, time_index)=> {
-      // const updated_notes = notes.forEach(function(note, curr_index){
-      //   if(curr_index === index){
-      //     note.time_value = 
-      //   }
-      //   return note
-      // })
-      // dispatch(setNotes(filtered_notes))
-    },
     changeStatus: (elm)=> {
       elm.className += ' pending'
+    },
+    changeTimeValue: (notes, note_obj, index)=> {
+      const curr_time_value_index = time_values.indexOf(note_obj.time_value)
+      const next_time_index = curr_time_value_index === (time_values.length - 1) ? 0 : curr_time_value_index + 1
+      let updated_notes = notes
+      updated_notes[index].time_value = time_values[next_time_index]
+      dispatch(setNotes(updated_notes))
     },
     showAttributions: ()=> {
       dispatch(toggleModal(true, 'attributions'))

@@ -39,6 +39,8 @@ export const preexisting_songs = [
   }
 ]
 
+export const time_values = [0.1, 0.25, 0.5]
+
 export const base_url = 'https://ece3f1b6.ngrok.io/api'
 
 export const letters = [
@@ -114,7 +116,7 @@ export function markovMusic(song_name){
       currentGram = result.substring(result.length - order, result.length)
     }
     result = result.split('').map(function(note){
-      return {note: note, time_value: 0.25}
+      return {note: note, time_value: time_values[getRandomInt(0, time_values.length)]}
     })
     return result
   }
