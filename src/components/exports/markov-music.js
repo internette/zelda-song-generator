@@ -41,7 +41,7 @@ export const preexisting_songs = [
 
 export const time_values = [0.1, 0.25, 0.5]
 
-export const base_url = 'https://ece3f1b6.ngrok.io/api'
+export const base_url = 'https://b9f683c6.ngrok.io/api'
 
 export const letters = [
   {letter: "L", note: "D", button: "A"},

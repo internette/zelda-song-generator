@@ -38,13 +38,16 @@ const mapDispatchToProps = (dispatch, ownProps) => {
         document.getElementById('hey-listen').play()
       } else {
         document.getElementById('error').classList.remove('active')
-        const formatted_song = song.map(function(note_obj){
+        const formatted_song_notes = song.map(function(note_obj){
           return letters.filter(function(letter_obj){
-            if(letter_obj.letter === note_obj){
+            if(letter_obj.letter === note_obj.note){
               return letter_obj
             }
             return false
           })[0].note
+        }).join('%20')
+        const formatted_song_times = song.map(function(note_obj){
+          return note_obj.time_value
         }).join('%20')
         document.getElementById('submit-send-email').classList.add('pending')
         fetch(`${base_url}/make-song`, {
@@ -54,7 +57,8 @@ const mapDispatchToProps = (dispatch, ownProps) => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify({
-            notes: formatted_song,
+            notes: formatted_song_notes,
+            time_values: formatted_song_times,
             instrument: instrument,
             song_name: song_name,
             email_address: email_address
