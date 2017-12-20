@@ -221,6 +221,8 @@
         color: rgba(243, 236, 218, 0.4); }
     .container-content #music-sheet + div {
       margin-top: 1.5rem; }
+      .container-content #music-sheet + div .button:not(:last-child) {
+        margin-right: 0.75rem; }
   @media screen and (max-width: 768px) {
     .container-content h1 {
       font-size: 2.2rem;

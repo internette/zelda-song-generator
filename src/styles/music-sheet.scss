@@ -265,6 +265,9 @@ $button_size: 36px;
     }
     & + div {
       margin-top: 1.5rem;
+      .button:not(:last-child){
+        margin-right: 0.75rem;
+      }
     }
   }
   @media screen and (max-width: 768px){
