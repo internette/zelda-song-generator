@@ -6,6 +6,10 @@ export function setTitle(title) {
   return {type: 'set-title', title: title}
 }
 
+export function setAudioUrl(url) {
+  return {type: 'set-audio-url', url: url}
+}
+
 export function setInstrument(instrument) {
   return {type: 'set-instrument', instrument: instrument}
 }

@@ -1,9 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { letters } from '../exports/markov-music'
+import { letters, base_url } from '../exports/markov-music'
 import '../../styles/music-sheet.css'
 
 const MusicSheetPresenter = (props) => {
+  const audio_url = base_url.replace('/api', '/public/sound_clips/')
   return (
     <div>
       <div id="music-sheet">
@@ -36,6 +37,16 @@ const MusicSheetPresenter = (props) => {
           })}
       </div>
       <div>
+        {props.notes.map((note_obj, index) => {
+          const note_val = letters.filter(function(letter_obj){
+            if(letter_obj.letter === note_obj.note){
+              return letter_obj
+            }
+            return false
+          })[0].note
+          return <audio key={index} id={"song-note-" + index} className="audio-note" src={ audio_url + props.instrument + '_' + note_val + '.mp3' }></audio>
+        })}
+        <button className="button black" onClick={()=> { props.playSong(props.notes, props.instrument) }}>Play</button>
         <button className="button black" onClick={(e)=>{
           props.showEmail()
           props.changeStatus(e.currentTarget)
@@ -52,6 +63,7 @@ MusicSheetPresenter.propTypes = {
   removeNote: PropTypes.func.isRequired,
   changeStatus: PropTypes.func.isRequired,
   changeTimeValue: PropTypes.func.isRequired,
+  playSong: PropTypes.func.isRequired,
   notes: PropTypes.array.isRequired,
   filename: PropTypes.string.isRequired
 }

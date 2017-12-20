@@ -4,6 +4,10 @@ const musicSheet = (state = {}, action)=> {
       return Object.assign({}, state, {
         notes: action.notes.slice(0)
       })
+    case 'set-audio-url':
+      return Object.assign({}, state, {
+        audio_url: action.audio_url
+      })
     default: 
       return state
   }
