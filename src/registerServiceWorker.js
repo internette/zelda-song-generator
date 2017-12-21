@@ -35,7 +35,7 @@ export default function register() {
       if (!isLocalhost) {
         // Is not local host. Just register service worker
         if(navigator.onLine){
-          storage.clear();
+          localStorage.clear();
         }
         registerValidSW(swUrl);
       } else {
