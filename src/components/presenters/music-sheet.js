@@ -46,7 +46,7 @@ const MusicSheetPresenter = (props) => {
           })[0].note
           return <audio key={index} id={"song-note-" + index} className="audio-note" src={ audio_url + props.instrument + '_' + note_val + '.mp3' }></audio>
         })}
-        {/* <button className="button black" onClick={()=> { props.playSong(props.notes, props.instrument) }}>Play</button> */}
+        <button className="button black" onClick={()=> { props.playSong(props.notes, props.instrument) }}>Play</button>
         <button className="button black" onClick={(e)=>{
           props.showEmail()
           props.changeStatus(e.currentTarget)
