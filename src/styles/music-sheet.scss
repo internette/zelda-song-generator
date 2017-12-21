@@ -264,9 +264,11 @@ $button_size: 36px;
       }
     }
     & + div {
-      margin-top: 1.5rem;
-      .button:not(:last-child){
-        margin-right: 0.75rem;
+      .button {
+        margin-top: 1.5rem;
+        &:not(:last-child){
+          margin-right: 0.75rem;
+        }
       }
     }
   }
