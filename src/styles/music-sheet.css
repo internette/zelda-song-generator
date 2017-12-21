@@ -219,7 +219,7 @@
       .container-content #music-sheet + .button.pending {
         box-shadow: 1.5px 1.5px 1.5px rgba(243, 236, 218, 0.4), -1.5px -1.5px 1px #302006;
         color: rgba(243, 236, 218, 0.4); }
-    .container-content #music-sheet + div {
+    .container-content #music-sheet + div .button {
       margin-top: 1.5rem; }
       .container-content #music-sheet + div .button:not(:last-child) {
         margin-right: 0.75rem; }
