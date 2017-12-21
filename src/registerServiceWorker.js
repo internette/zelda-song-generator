@@ -34,6 +34,9 @@ export default function register() {
 
       if (!isLocalhost) {
         // Is not local host. Just register service worker
+        if(navigator.onLine){
+          storage.clear();
+        }
         registerValidSW(swUrl);
       } else {
         // This is running on localhost. Lets check if a service worker still exists or not.
